@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.automanager.R;
 
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
