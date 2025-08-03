@@ -1,4 +1,4 @@
-package automanager.modelo;
+package proyecto.modelo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

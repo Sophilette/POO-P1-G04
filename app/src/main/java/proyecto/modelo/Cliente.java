@@ -1,4 +1,4 @@
-package automanager.modelo;
+package proyecto.modelo;
 
 public class Cliente extends Persona {
 
