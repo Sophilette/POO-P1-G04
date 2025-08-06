@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="83dp"
         android:fontFamily="sans-serif"
-        android:text="Servicios"
+        android:text="Órdenes de Servicios"
         android:textColor="#FF0D1D3D"
         android:textSize="30sp"
         android:textStyle="bold"

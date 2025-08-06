@@ -8,7 +8,7 @@
     android:padding="24dp">
 
     <Spinner
-        android:id="@+id/spDepart"
+        android:id="@+id/spCodServicio"
         android:layout_width="362dp"
         android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -101,7 +101,7 @@
         android:textColor="#333333"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spDepart" />
+        app:layout_constraintTop_toBottomOf="@+id/spCodServicio" />
 
     <TextView
         android:id="@+id/tvCodigoLabel"

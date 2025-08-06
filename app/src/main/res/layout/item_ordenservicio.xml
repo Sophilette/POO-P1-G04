@@ -10,7 +10,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -18,26 +18,37 @@
             android:id="@+id/tvCliente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Código"
+            android:text="Cliente"
             android:textColor="#FF0D1D3D"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="normal" />
 
         <TextView
             android:id="@+id/tvFecha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Nombre del Servicio"
-            android:textColor="#000000" />
+            android:text="Fecha"
+            android:textColor="#000000"
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/tvPlaca"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="Precio"
-            android:textColor="#000000" />
+            android:text="Placa"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Total a pagar"
+            android:textColor="#000000"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/btnDetalles"
@@ -45,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="#FF0D1D3D"
-            android:text="Editar"
+            android:text="Más Detalles"
             android:textAllCaps="false"
             android:textColor="@android:color/white" />
 
