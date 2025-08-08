@@ -1,4 +1,6 @@
 package proyecto.modelo;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class Cliente extends Persona {
 
@@ -35,6 +37,6 @@ public class Cliente extends Persona {
     
     PERSONAL, EMPRESARIAL
     
-}
+    }
   
 }

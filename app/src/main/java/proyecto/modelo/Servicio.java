@@ -1,9 +1,11 @@
 package proyecto.modelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Objects;
 
-public class Servicio {
+public class Servicio implements Serializable {
 
     // Variables de instancia
     private String codigo;
@@ -45,6 +47,45 @@ public class Servicio {
     public void registrarPrecioEnHistorial(double precio) {
         PrecioHistorial nuevoRegistro = new PrecioHistorial(LocalDate.now(), precio);
         historialPrecios.add(nuevoRegistro);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Servicio servicio = (Servicio) o;
+        return codigo == servicio.codigo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(codigo);
+    }
+
+    public static ArrayList<Servicio> obtenerServicios(){
+        ArrayList<Servicio> lstServicios = new ArrayList<>();
+
+        lstServicios.add(new Servicio("S001", "Cambio de aceite", 20.0));
+        lstServicios.add(new Servicio("S002", "Cambio de filtro", 15.0));
+        lstServicios.add(new Servicio("S003", "Alineación", 30.0));
+        lstServicios.add(new Servicio("S004", "Balanceo", 25.0));
+        lstServicios.add(new Servicio("S005", "Revisión de frenos", 35.0));
+        lstServicios.add(new Servicio("S006", "Diagnóstico electrónico", 40.0));
+
+        return lstServicios;
+    }
+    @Override
+    public String toString() {
+        return  codigo +  " - " + nombre + " - " + precioActual;
+    }
+
+    public static ArrayList<String> obtenerCodigos(){
+        ArrayList<String> lstCodigos = new ArrayList<>();
+        ArrayList<Servicio> lstServicios = obtenerServicios();
+        for (Servicio servicio : lstServicios) {
+            lstCodigos.add(servicio.getCodigo());
+        }
+        return lstCodigos;
     }
     
 }

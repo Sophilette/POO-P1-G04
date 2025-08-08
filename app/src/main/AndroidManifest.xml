@@ -20,6 +20,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name="proyecto.automanagerapp.AdminServiciosActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="proyecto.automanagerapp.AggServicioActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="proyecto.automanagerapp.EditarServicioActivity"
+            android:exported="false" />
     </application>
 
 </manifest>

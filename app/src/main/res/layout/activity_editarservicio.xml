@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/editarservicio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f4f6fc"
@@ -9,14 +10,13 @@
 
     <Spinner
         android:id="@+id/spCodServicio"
-        android:layout_width="362dp"
-        android:layout_height="50dp"
+        android:layout_width="337dp"
+        android:layout_height="52dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvCodigoLabel"
-        app:layout_constraintVertical_bias="0.052" />
+        app:layout_constraintVertical_bias="0.055" />
 
     <TextView
         android:id="@+id/head3"
@@ -30,7 +30,7 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.059"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
@@ -51,8 +51,8 @@
 
     <EditText
         android:id="@+id/etPrecioServicio"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="337dp"
+        android:layout_height="52dp"
         android:layout_marginTop="16dp"
         android:background="@android:drawable/editbox_background"
         android:hint="Precio del Servicio"
@@ -60,7 +60,6 @@
         android:padding="16dp"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPrecioLabel" />
 
@@ -74,7 +73,7 @@
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.946"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etPrecioServicio" />
 
@@ -84,11 +83,12 @@
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#9E0000"
+        android:onClick="cancelar"
         android:text="Cancelar"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.053"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etPrecioServicio" />
 
@@ -96,7 +96,8 @@
         android:id="@+id/tvPrecioLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="24dp"
         android:text="Precio"
         android:textColor="#333333"
         android:textSize="16sp"
@@ -107,6 +108,7 @@
         android:id="@+id/tvCodigoLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="40dp"
         android:text="Código"
         android:textColor="#333333"
