@@ -32,6 +32,15 @@
         <activity
             android:name="proyecto.automanagerapp.EditarServicioActivity"
             android:exported="false" />
+
+        <activity
+            android:name="proyecto.automanagerapp.AdminOrdenServicioActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="proyecto.automanagerapp.AggOrdenesServicioActivity"
+            android:exported="false" />
+
     </application>
 
 </manifest>

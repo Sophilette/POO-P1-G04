@@ -51,5 +51,14 @@ public class Cliente extends Persona implements Serializable {
         return lstClientes;
 
     }
+
+    public static ArrayList<String> obtenerNombres(){
+        ArrayList<String> lstNombres = new ArrayList<>();
+        ArrayList<Cliente> lstClientes = obtenerClientes();
+        for (Cliente cliente : lstClientes) {
+            lstNombres.add(cliente.getNombre());
+        }
+        return lstNombres;
+    }
   
 }

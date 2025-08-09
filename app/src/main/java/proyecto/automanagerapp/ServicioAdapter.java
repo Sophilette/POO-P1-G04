@@ -36,9 +36,9 @@ public class ServicioAdapter extends RecyclerView.Adapter<ServicioAdapter.Servic
         Servicio servicio = servicios.get(position);
         holder.codigoTextView.setText(servicio.getCodigo());
         holder.nombreTextView.setText(servicio.getNombre());
-        holder.precioTextView.setText(String.valueOf(servicio.getPrecioActual()));
+        holder.precioTextView.setText(String.format("$%.2f",servicio.getPrecioActual()));
         holder.editarButton.setOnClickListener(v -> {
-            // Iniciamos la nueva actividad, pasando información sobre el empleado
+            // Iniciamos la nueva actividad, pasando información sobre el servicio
             Intent intent = new Intent(context, EditarServicioActivity.class);
             intent.putExtra("servicio", servicio);
 
@@ -60,10 +60,10 @@ public class ServicioAdapter extends RecyclerView.Adapter<ServicioAdapter.Servic
 
         public ServicioViewHolder(View itemView) {
             super(itemView);
-            codigoTextView = itemView.findViewById(R.id.tvCodigo);
-            nombreTextView = itemView.findViewById(R.id.tvNombre);
-            precioTextView = itemView.findViewById(R.id.tvPrecio);
-            editarButton = itemView.findViewById(R.id.btnEditar);}
+            codigoTextView = itemView.findViewById(R.id.tvCliente);
+            nombreTextView = itemView.findViewById(R.id.tvFecha);
+            precioTextView = itemView.findViewById(R.id.tvPlaca);
+            editarButton = itemView.findViewById(R.id.btndetalles);}
 
     }
 

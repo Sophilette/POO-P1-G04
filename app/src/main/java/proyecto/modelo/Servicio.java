@@ -65,12 +65,12 @@ public class Servicio implements Serializable {
     public static ArrayList<Servicio> obtenerServicios(){
         ArrayList<Servicio> lstServicios = new ArrayList<>();
 
-        lstServicios.add(new Servicio("S001", "Cambio de aceite", 20.0));
-        lstServicios.add(new Servicio("S002", "Cambio de filtro", 15.0));
-        lstServicios.add(new Servicio("S003", "Alineación", 30.0));
-        lstServicios.add(new Servicio("S004", "Balanceo", 25.0));
-        lstServicios.add(new Servicio("S005", "Revisión de frenos", 35.0));
-        lstServicios.add(new Servicio("S006", "Diagnóstico electrónico", 40.0));
+        lstServicios.add(new Servicio("S001", "Cambio de aceite", 20.00));
+        lstServicios.add(new Servicio("S002", "Cambio de filtro", 15.00));
+        lstServicios.add(new Servicio("S003", "Alineación", 30.00));
+        lstServicios.add(new Servicio("S004", "Balanceo", 25.00));
+        lstServicios.add(new Servicio("S005", "Revisión de frenos", 35.00));
+        lstServicios.add(new Servicio("S006", "Diagnóstico electrónico", 40.00));
 
         return lstServicios;
     }

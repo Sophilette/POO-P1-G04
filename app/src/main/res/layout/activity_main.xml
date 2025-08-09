@@ -209,6 +209,7 @@
         android:layout_height="98dp"
         android:background="@null"
         android:contentDescription="Generar orden de servicios"
+        android:onClick="adminordenes"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/facturaButton"

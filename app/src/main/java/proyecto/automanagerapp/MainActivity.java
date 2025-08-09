@@ -34,4 +34,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d("App","Al dar click en Administrar Servicios");
         this.startActivity(intent);
     }
+
+    public void adminordenes(View view){
+        Intent intent = new Intent(this, AdminOrdenServicioActivity.class);
+        Log.d("App","Al dar click en Generar Orden de Servicios");
+        this.startActivity(intent);
+    }
 }

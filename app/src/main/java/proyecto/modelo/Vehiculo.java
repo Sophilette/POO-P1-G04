@@ -43,5 +43,13 @@ public class Vehiculo implements Serializable {
         return lstVehiculos;
 
     }
+
+    public static ArrayList<String> obtenerTipos(){
+        ArrayList<String> lstTipos = new ArrayList<>();
+        lstTipos.add("Automovil");
+        lstTipos.add("Motocicleta");
+        lstTipos.add("Bus");
+        return lstTipos;
+    }
   
 }

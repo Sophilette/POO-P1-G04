@@ -7,6 +7,7 @@
     android:background="#f4f6fc">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adminordenes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -20,10 +21,10 @@
             android:textColor="#FF0D1D3D"
             android:textSize="24sp"
             android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.267" />
+            app:layout_constraintHorizontal_bias="0.267"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/retrocederButton"
@@ -32,6 +33,7 @@
             android:layout_marginTop="16dp"
             android:background="@null"
             android:contentDescription="Retroceder"
+            android:onClick="retroceder"
             android:scaleType="centerInside"
             app:layout_constraintEnd_toStartOf="@+id/head2"
             app:layout_constraintHorizontal_bias="0.421"
@@ -60,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
             android:backgroundTint="#FF0D1D3D"
+            android:onClick="agregarOrdenServicio"
             android:text="Agregar"
             android:textColor="@color/white"
             android:textColorLink="@color/white"
@@ -70,7 +73,7 @@
             app:layout_constraintTop_toBottomOf="@id/serviciosTitle" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lstserviciosRv"
+            android:id="@+id/lstordenesRv"
             android:layout_width="363dp"
             android:layout_height="495dp"
             android:layout_marginTop="20dp"

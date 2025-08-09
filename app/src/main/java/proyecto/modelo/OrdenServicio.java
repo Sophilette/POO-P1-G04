@@ -64,7 +64,7 @@ public class OrdenServicio {
 
     // Calcular el total de la suma de los valores a pagar por cada item
     public double calcularTotal() {
-        double total = 0;
+        double total = 0.00;
         for (ItemOrdenServicio item : items) {
             total += item.calcularSubtotal();
         }
@@ -83,18 +83,18 @@ public class OrdenServicio {
         lstOrdenes.add(os1);
 
         OrdenServicio os2 = new OrdenServicio(clientes.get(2), vehiculos.get(1), tecnicos.get(0), LocalDate.of(2025, 4, 4));
-        os1.agregarItem(new ItemOrdenServicio(servicios.get(2), 1));
-        os1.agregarItem(new ItemOrdenServicio(servicios.get(3), 1));
+        os2.agregarItem(new ItemOrdenServicio(servicios.get(2), 1));
+        os2.agregarItem(new ItemOrdenServicio(servicios.get(3), 1));
         lstOrdenes.add(os2);
 
         OrdenServicio os3 = new OrdenServicio(clientes.get(1), new Vehiculo("LUC-789", Vehiculo.TipoVehiculo.AUTOMOVIL), tecnicos.get(1), LocalDate.of(2025, 4, 4));
-        os1.agregarItem(new ItemOrdenServicio(servicios.get(4), 1));
-        os1.agregarItem(new ItemOrdenServicio(servicios.get(5), 1));
+        os3.agregarItem(new ItemOrdenServicio(servicios.get(4), 1));
+        os3.agregarItem(new ItemOrdenServicio(servicios.get(5), 1));
         lstOrdenes.add(os3);
 
         OrdenServicio os4 = new OrdenServicio(clientes.get(1), new Vehiculo("TRN-999", Vehiculo.TipoVehiculo.BUS), tecnicos.get(1), LocalDate.of(2025, 4, 4));
-        os1.agregarItem(new ItemOrdenServicio(servicios.get(5), 1));
-        os1.agregarItem(new ItemOrdenServicio(servicios.get(0), 1));
+        os4.agregarItem(new ItemOrdenServicio(servicios.get(5), 1));
+        os4.agregarItem(new ItemOrdenServicio(servicios.get(0), 1));
         lstOrdenes.add(os4);
 
         return lstOrdenes;
@@ -102,7 +102,7 @@ public class OrdenServicio {
 
     @Override
     public String toString() {
-        return  cliente.getNombre() +  " - " + fecha +  " - " + vehiculo.getPlaca() + " - " + calcularTotal();
+        return  cliente.getNombre() +  " - " + fecha +  " - " + vehiculo.getPlaca() + " - " + this.calcularTotal();
     }
 
     public enum EstadoOrden {

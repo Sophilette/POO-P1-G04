@@ -41,7 +41,7 @@ public class EditarServicioActivity extends AppCompatActivity{
         Intent i = getIntent();
         servicio = (Servicio) i.getSerializableExtra("servicio");
         EditText etPrecioServicio = findViewById(R.id.etPrecioServicio);
-        etPrecioServicio.setText(String.valueOf(servicio.getPrecioActual()));
+        etPrecioServicio.setText(String.format("%.2f",servicio.getPrecioActual()));
 
         Spinner spCodServicio = findViewById(R.id.spCodServicio);
         ArrayList<String> lstCodigos = Servicio.obtenerCodigos();
