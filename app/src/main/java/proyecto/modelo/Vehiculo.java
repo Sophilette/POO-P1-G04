@@ -1,6 +1,9 @@
 package proyecto.modelo;
 
-public class Vehiculo {
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Vehiculo implements Serializable {
 
     // variables de instancia 
     private String placa;
@@ -30,5 +33,15 @@ public class Vehiculo {
     
     AUTOMOVIL, MOTOCICLETA, BUS
 }
+
+    public static ArrayList<Vehiculo> obtenerVehiculos(){
+        ArrayList<Vehiculo> lstVehiculos = new ArrayList<>();
+
+        lstVehiculos.add(new Vehiculo("GTL-456", TipoVehiculo.AUTOMOVIL));
+        lstVehiculos.add(new Vehiculo("TPX-888", TipoVehiculo.BUS));
+
+        return lstVehiculos;
+
+    }
   
 }

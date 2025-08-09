@@ -1,5 +1,7 @@
 package proyecto.modelo;
 
+import java.util.ArrayList;
+
 public class Tecnico extends Persona {
 
     // Variables de instancia
@@ -18,6 +20,16 @@ public class Tecnico extends Persona {
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
+    }
+
+    public static ArrayList<Tecnico> obtenerTecnicos(){
+        ArrayList<Tecnico> lstTecnicos = new ArrayList<>();
+
+        lstTecnicos.add(new Tecnico("T001", "Mario Barcos", "0999001122", "Frenos"));
+        lstTecnicos.add(new Tecnico("T002", "Alvaro López", "0999888777", "Suspensión"));
+
+        return lstTecnicos;
+
     }
    
 }

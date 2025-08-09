@@ -70,6 +70,40 @@ public class OrdenServicio {
         }
         return total;
     }
+    public static ArrayList<OrdenServicio> obtenerOrdenes(){
+        ArrayList<OrdenServicio> lstOrdenes = new ArrayList<>();
+        ArrayList<Cliente> clientes = Cliente.obtenerClientes();
+        ArrayList<Vehiculo> vehiculos = Vehiculo.obtenerVehiculos();
+        ArrayList<Servicio> servicios = Servicio.obtenerServicios();
+        ArrayList<Tecnico> tecnicos = Tecnico.obtenerTecnicos();
+
+        OrdenServicio os1 = new OrdenServicio(clientes.get(0), vehiculos.get(0), tecnicos.get(0), LocalDate.of(2025, 4, 4));
+        os1.agregarItem(new ItemOrdenServicio(servicios.get(0), 1));
+        os1.agregarItem(new ItemOrdenServicio(servicios.get(1), 1));
+        lstOrdenes.add(os1);
+
+        OrdenServicio os2 = new OrdenServicio(clientes.get(2), vehiculos.get(1), tecnicos.get(0), LocalDate.of(2025, 4, 4));
+        os1.agregarItem(new ItemOrdenServicio(servicios.get(2), 1));
+        os1.agregarItem(new ItemOrdenServicio(servicios.get(3), 1));
+        lstOrdenes.add(os2);
+
+        OrdenServicio os3 = new OrdenServicio(clientes.get(1), new Vehiculo("LUC-789", Vehiculo.TipoVehiculo.AUTOMOVIL), tecnicos.get(1), LocalDate.of(2025, 4, 4));
+        os1.agregarItem(new ItemOrdenServicio(servicios.get(4), 1));
+        os1.agregarItem(new ItemOrdenServicio(servicios.get(5), 1));
+        lstOrdenes.add(os3);
+
+        OrdenServicio os4 = new OrdenServicio(clientes.get(1), new Vehiculo("TRN-999", Vehiculo.TipoVehiculo.BUS), tecnicos.get(1), LocalDate.of(2025, 4, 4));
+        os1.agregarItem(new ItemOrdenServicio(servicios.get(5), 1));
+        os1.agregarItem(new ItemOrdenServicio(servicios.get(0), 1));
+        lstOrdenes.add(os4);
+
+        return lstOrdenes;
+    }
+
+    @Override
+    public String toString() {
+        return  cliente.getNombre() +  " - " + fecha +  " - " + vehiculo.getPlaca() + " - " + calcularTotal();
+    }
 
     public enum EstadoOrden {
     
