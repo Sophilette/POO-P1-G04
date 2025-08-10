@@ -28,7 +28,7 @@
             android:id="@+id/tvId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/c001"
+            android:text="c001"
             android:textColor="#FF0D1D3D"
             android:textSize="16sp"
             android:textStyle="bold" />
@@ -39,7 +39,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/carlos_p_rez"
+            android:text="carlos_p_rez"
             android:textColor="#000000" />
 
         <!-- Teléfono -->
@@ -48,7 +48,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@string/_0991112222"
+            android:text="_0991112222"
             android:textColor="#000000" />
 
         <!-- No se usa en este avance -->
@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="#FF0D1D3D"
-            android:text="@string/editar"
+            android:text="editar"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:visibility="gone" />
