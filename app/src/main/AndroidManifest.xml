@@ -49,6 +49,14 @@
             android:name="proyecto.automanagerapp.AggClienteActivity"
             android:exported="false" />
 
+        <activity
+            android:name="proyecto.automanagerapp.AdminProveedoresActivity"
+            android:exported="false"/>
+        <activity
+            android:name="proyecto.automanagerapp.AggProveedorActivity"
+            android:exported="false"/>
+
+
 
     </application>
 

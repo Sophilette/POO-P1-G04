@@ -225,6 +225,7 @@
         android:layout_height="98dp"
         android:background="@null"
         android:contentDescription="Administrar proveedores"
+        android:onClick="adminProveedores"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/tecnicoButton"

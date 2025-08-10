@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  Card de la lista de Clientes:
-  - Aquí:
-        tvId -> ID del cliente (ej: C001)
-        tvNombre   -> Nombre del cliente (ej: Carlos Pérez)
-        tvTelefono   -> Teléfono (ej: 0991112222)
--->
+<!-- Card para Proveedor-->
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -21,47 +15,54 @@
         android:orientation="vertical"
         android:padding="16dp">
 
-        <!-- ID del cliente -->
+        <!-- ID -->
         <TextView
-            android:id="@+id/tvId"
+            android:id="@+id/tvProvId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="c001"
+            android:text="P001"
             android:textColor="#FF0D1D3D"
             android:textSize="16sp"
             android:textStyle="bold" />
 
         <!-- Nombre -->
         <TextView
-            android:id="@+id/tvNombre"
+            android:id="@+id/tvProvNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="carlos_p_rez"
+            android:text="Repuestos Andina"
             android:textColor="#000000" />
 
         <!-- Teléfono -->
         <TextView
-            android:id="@+id/tvTelefono"
+            android:id="@+id/tvProvTelefono"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="_0991112222"
+            android:text="022345678"
             android:textColor="#000000" />
 
-        <!-- No se usa en este avance -->
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/tvProvDescripcion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Repuestos originales y alternos"
+            android:textColor="#000000" />
+
+        <!-- No usar en este avance -->
         <Button
             android:id="@+id/btndetalles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="#FF0D1D3D"
-            android:text="editar"
+            android:text="Editar"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
             android:visibility="gone" />
 
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>
-

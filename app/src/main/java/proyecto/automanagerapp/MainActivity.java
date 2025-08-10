@@ -46,5 +46,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, proyecto.automanagerapp.AdminClientesActivity.class));
     }
 
+    public void adminProveedores(View view){
+        startActivity(new Intent(this, AdminProveedoresActivity.class));
+    }
+
+
 
 }
