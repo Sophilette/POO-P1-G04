@@ -41,6 +41,15 @@
             android:name="proyecto.automanagerapp.AggOrdenesServicioActivity"
             android:exported="false" />
 
+        <activity
+            android:name="proyecto.automanagerapp.AdminClientesActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="proyecto.automanagerapp.AggClienteActivity"
+            android:exported="false" />
+
+
     </application>
 
 </manifest>

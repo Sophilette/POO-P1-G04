@@ -1,7 +1,6 @@
 package proyecto.modelo;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Cliente extends Persona implements Serializable {
 

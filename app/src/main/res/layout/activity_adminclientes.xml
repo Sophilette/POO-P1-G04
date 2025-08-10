@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f6fc">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adminclientes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Marca de la app -->
+        <TextView
+            android:id="@+id/head2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif"
+            android:text="AutoManager"
+            android:textColor="#FF0D1D3D"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.267"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- Volver atrás -->
+        <ImageButton
+            android:id="@+id/retrocederButton"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:contentDescription="Retroceder"
+            android:onClick="retroceder"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toStartOf="@+id/head2"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/retrocederiocon" />
+
+        <!-- Título de la sección -->
+        <TextView
+            android:id="@+id/serviciosTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="sans-serif"
+            android:text="Clientes"
+            android:textColor="#FF0D1D3D"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/head2" />
+
+        <!-- Botón Agregar (abre AggClienteActivity) -->
+        <Button
+            android:id="@+id/agregarButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#FF0D1D3D"
+            android:onClick="agregarCliente"
+            android:text="Agregar"
+            android:textColor="@color/white"
+            android:textColorLink="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.919"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/serviciosTitle" />
+
+        <!-- Listado (RecyclerView) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lstclientesRv"
+            android:layout_width="363dp"
+            android:layout_height="495dp"
+            android:layout_marginTop="20dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/agregarButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

@@ -240,6 +240,7 @@
         android:layout_height="98dp"
         android:background="@null"
         android:contentDescription="Administrar clientes"
+        android:onClick="adminClientes"
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
