@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f6fc">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/adminfacturas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Encabezado y botón de retroceder, igual al tuyo -->
+        <TextView
+            android:id="@+id/head2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif"
+            android:text="AutoManager"
+            android:textColor="#FF0D1D3D"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.267"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/retrocederButtonFacturas"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:contentDescription="Retroceder"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toStartOf="@+id/head2"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/retrocederiocon" />
+
+        <!-- Título principal de la pantalla -->
+        <TextView
+            android:id="@+id/facturasTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:fontFamily="sans-serif"
+            android:text="Facturas a Empresas"
+            android:textColor="#FF0D1D3D"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/head2" />
+
+        <!-- Botón para ir a la pantalla de generar una nueva factura -->
+        <Button
+            android:id="@+id/btnIrAGenerarFactura"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#FF0D1D3D"
+            android:text="Generar Factura"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.919"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/facturasTitle" />
+
+        <!-- RecyclerView para mostrar la lista de facturas generadas -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerFacturas"
+            android:layout_width="363dp"
+            android:layout_height="495dp"
+            android:layout_marginTop="20dp"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnIrAGenerarFactura" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

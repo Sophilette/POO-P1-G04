@@ -1,9 +1,10 @@
 package proyecto.modelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Factura {
+public class Factura implements Serializable {
 
     // Variables de instancia 
     private Cliente cliente;
@@ -48,6 +49,26 @@ public class Factura {
             total += CARGO_FIJO_EMPRESARIAL;
         }
         return total;
+    }
+
+    // Esta será nuestra "base de datos" en memoria para las facturas.
+    // Al ser 'static', esta lista será la misma para toda la aplicación.
+    private static ArrayList<Factura> facturasGuardadas = new ArrayList<>();
+
+    /**
+     * "Guarda" una nueva factura añadiéndola a nuestra lista estática.
+     * @param factura La factura generada que queremos guardar.
+     */
+    public static void guardarFactura(Factura factura) {
+        facturasGuardadas.add(factura);
+    }
+
+    /**
+     * Devuelve todas las facturas que hemos "guardado".
+     * @return La lista de facturas generadas.
+     */
+    public static ArrayList<Factura> obtenerFacturasGuardadas() {
+        return facturasGuardadas;
     }
 
 }
