@@ -52,9 +52,19 @@
         <activity
             android:name="proyecto.automanagerapp.AdminProveedoresActivity"
             android:exported="false"/>
+
         <activity
             android:name="proyecto.automanagerapp.AggProveedorActivity"
             android:exported="false"/>
+
+        <activity
+            android:name="proyecto.automanagerapp.AdminTecnicosActivity"
+            android:exported="false"/>
+
+        <activity
+            android:name="proyecto.automanagerapp.AggTecnicoActivity"
+            android:exported="false"/>
+
 
 
 

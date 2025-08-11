@@ -50,6 +50,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, AdminProveedoresActivity.class));
     }
 
-
+    public void adminTecnicos(View view){
+        startActivity(new Intent(this, AdminTecnicosActivity.class));
+    }
 
 }
