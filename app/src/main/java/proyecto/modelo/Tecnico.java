@@ -1,8 +1,9 @@
 package proyecto.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Tecnico extends Persona {
+public class Tecnico extends Persona implements Serializable {
 
     // Variables de instancia
     private String especialidad;
@@ -14,9 +15,7 @@ public class Tecnico extends Persona {
     }
 
     // Getters y Setters
-    public String getEspecialidad() {
-        return especialidad;
-    }
+    public String getEspecialidad() { return especialidad; }
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;

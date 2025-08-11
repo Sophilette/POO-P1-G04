@@ -40,4 +40,18 @@ public class MainActivity extends AppCompatActivity {
         Log.d("App","Al dar click en Generar Orden de Servicios");
         this.startActivity(intent);
     }
+
+    public void adminClientes(View view){
+        // Intent explícito para abrir la pantalla de administración de clientes
+        startActivity(new Intent(this, proyecto.automanagerapp.AdminClientesActivity.class));
+    }
+
+    public void adminProveedores(View view){
+        startActivity(new Intent(this, AdminProveedoresActivity.class));
+    }
+
+    public void adminTecnicos(View view){
+        startActivity(new Intent(this, AdminTecnicosActivity.class));
+    }
+
 }

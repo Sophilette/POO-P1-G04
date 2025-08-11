@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Formulario de Proveedor centrado y con ancho fijo -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/aggproveedor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f6fc"
+    android:padding="16dp"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/formContainerProveedor"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/headProveedor"
+                android:layout_width="match_parent"
+                android:layout_height="161dp"
+                android:gravity="center"
+                android:paddingBottom="16dp"
+                android:text="Nuevo Proveedor"
+                android:textColor="#FF0D1D3D"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <!-- ID -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ID"
+                android:textColor="#333333"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etIdProveedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Ej. P005"
+                android:textColor="@color/black" />
+
+            <!-- Nombre -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Nombre"
+                android:textColor="#333333"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etNombreProveedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Ej. Repuestos San José"
+                android:textColor="@color/black" />
+
+            <!-- Teléfono -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Teléfono"
+                android:textColor="#333333"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etTelefonoProveedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Ej. 022345678"
+                android:inputType="phone"
+                android:textColor="@color/black" />
+
+            <!-- Descripción -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Descripción"
+                android:textColor="#333333"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etDescripcionProveedor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/editbox_background"
+                android:hint="Ej. Proveedor de repuestos originales y alternos"
+                android:textColor="@color/black" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="end"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/cancelarProveedorBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:backgroundTint="#9E0000"
+                    android:onClick="cancelar"
+                    android:text="Cancelar"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.062"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/etPrecioServicio" />
+
+                <Space
+                    android:layout_width="12dp"
+                    android:layout_height="wrap_content" />
+
+                <Button
+                    android:id="@+id/guardarProveedorBtn"
+                    android:layout_width="114dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="36dp"
+                    android:backgroundTint="#FF0D1D3D"
+                    android:onClick="guardarProveedor"
+                    android:text="Guardar"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.937"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/etPrecioServicio" />
+
+
+            </LinearLayout>
+
+            <!-- Acciones -->
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
