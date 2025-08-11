@@ -54,4 +54,24 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, AdminTecnicosActivity.class));
     }
 
+    public void adminFacturas(View view) {
+        // Creamos la intención para abrir la pantalla de listado de facturas.
+        Intent intent = new Intent(this, AdminFacturasActivity.class);
+        Log.d("App","Al dar click en Generar Factura Empresarial");
+        // Iniciamos la nueva actividad.
+        this.startActivity(intent);
+    }
+
+    public void reportePorServicios(View view) {
+        // Creamos la intención para abrir la pantalla del reporte.
+        Intent intent = new Intent(this, ReporteServiciosActivity.class);
+        Log.d("App","Al dar click en Reporte de Ingresos por Servicios");
+        this.startActivity(intent);
+    }
+
+    public void reportePorTecnicos(View view) {
+        Intent intent = new Intent(this, ReporteTecnicosActivity.class);
+        Log.d("App","Al dar click en Reporte de Ingresos por Técnicos");
+        this.startActivity(intent);
+    }
 }

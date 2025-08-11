@@ -65,7 +65,25 @@
             android:name="proyecto.automanagerapp.AggTecnicoActivity"
             android:exported="false"/>
 
+        <activity
+            android:name="proyecto.automanagerapp.AdminFacturasActivity"
+            android:exported="false" />
 
+        <activity
+            android:name="proyecto.automanagerapp.GenerarFacturaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="proyecto.automanagerapp.DetalleFacturaActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="proyecto.automanagerapp.ReporteServiciosActivity"
+            android:exported="false" />
+
+        <activity
+            android:name="proyecto.automanagerapp.ReporteTecnicosActivity"
+            android:exported="false" />
 
 
     </application>
