@@ -23,7 +23,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.868"
-        app:srcCompat="@drawable/icon8" />
+        app:srcCompat="@drawable/icon8"
+        android:onClick="reportePorTecnicos"/>
 
     <TextView
         android:id="@+id/tv8"
@@ -57,7 +58,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.868"
-        app:srcCompat="@drawable/icon7" />
+        app:srcCompat="@drawable/icon7"
+        android:onClick="reportePorServicios"/>
 
     <TextView
         android:id="@+id/tv7"
@@ -91,7 +93,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.592"
-        app:srcCompat="@drawable/icon6" />
+        app:srcCompat="@drawable/icon6"
+        android:onClick="adminFacturas" />
 
     <TextView
         android:id="@+id/tv3"
@@ -313,5 +316,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.051"
         app:srcCompat="@drawable/iconoapp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
