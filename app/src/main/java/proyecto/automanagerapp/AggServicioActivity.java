@@ -20,7 +20,7 @@ public class AggServicioActivity extends AppCompatActivity{
         setContentView(R.layout.activity_aggservicio);
 
         Log.d("Administrar Servicios","en onCreate");
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.aggservicio), (v, insets) -> {
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.aggcliente), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;

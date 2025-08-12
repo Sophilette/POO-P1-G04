@@ -16,53 +16,112 @@
         android:padding="16dp">
 
         <!-- ID -->
-        <TextView
-            android:id="@+id/tvProvId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="P001"
-            android:textColor="#FF0D1D3D"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="4dp">
+            <TextView
+                android:id="@+id/tvProvId1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Identificación:"
+                android:textColor="#FF0D1D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/tvProvId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Id"
+                android:layout_marginStart="8dp"
+                android:textColor="#FF0D1D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
 
         <!-- Nombre -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="4dp">
+        <TextView
+            android:id="@+id/tvProvNombre1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
         <TextView
             android:id="@+id/tvProvNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Repuestos Andina"
-            android:textColor="#000000" />
+            android:layout_marginStart="8dp"
+            android:text="Nombre Proveedor"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="normal"/>
+    </LinearLayout>
+
 
         <!-- Teléfono -->
-        <TextView
-            android:id="@+id/tvProvTelefono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="022345678"
-            android:textColor="#000000" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/tvProvTelefono1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvProvTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Teléfono"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
 
         <!-- Descripción -->
-        <TextView
-            android:id="@+id/tvProvDescripcion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Repuestos originales y alternos"
-            android:textColor="#000000" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="4dp">
 
-        <!-- No usar en este avance -->
-        <Button
-            android:id="@+id/btndetalles"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="#FF0D1D3D"
-            android:text="Editar"
-            android:textAllCaps="false"
-            android:textColor="@android:color/white"
-            android:visibility="gone" />
+            <TextView
+                android:id="@+id/tvProvDescripcion1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripción:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvProvDescripcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Descripción"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

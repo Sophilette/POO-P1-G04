@@ -1,5 +1,6 @@
 package proyecto.automanagerapp;
 
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,14 +51,21 @@ public class TecnicoAdapter extends RecyclerView.Adapter<TecnicoAdapter.VH>{
             AlertDialog.Builder b = new AlertDialog.Builder(v.getContext());
             b.setTitle("Eliminar técnico")
                     .setMessage("¿Deseas eliminar a " + t.getNombre() + "?")
-                    .setPositiveButton("Sí", (dialog, which) -> {
+                    .setPositiveButton("No", (dialog, which) -> dialog.dismiss())
+                    .setNegativeButton("Sí", (dialog, which) -> {
                         // Aquí NO eliminamos. Solo mostramos aviso.
                         Toast.makeText(v.getContext(),
-                                "El tecnico ha sido eliminado correctamente",
+                                "El técnico ha sido eliminado correctamente",
                                 Toast.LENGTH_SHORT).show();
-                    })
-                    .setNegativeButton("No", (dialog, which) -> dialog.dismiss())
-                    .show();
+                    });
+
+            AlertDialog dialog = b.create();
+            dialog.show();
+
+            int colorBotones = Color.parseColor("#808080");
+
+            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorBotones);
+            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorBotones);
         });
     }
 

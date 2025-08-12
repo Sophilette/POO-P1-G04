@@ -16,41 +16,115 @@
         android:padding="16dp">
 
         <!-- ID -->
-        <TextView
-            android:id="@+id/tvTecId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="T001"
-            android:textColor="#FF0D1D3D"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/tvTecId1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Identificación:"
+                android:textColor="#FF0D1D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTecId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Id"
+                android:layout_marginStart="8dp"
+                android:textColor="#FF0D1D3D"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+
 
         <!-- Nombre -->
-        <TextView
-            android:id="@+id/tvTecNombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Mario Barcos"
-            android:textColor="#000000" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/tvTecNombre1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvTecNombre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Nombre"
+                android:textSize="16sp"
+                android:textColor="#000000" />
+
+        </LinearLayout>
+
 
         <!-- Teléfono -->
-        <TextView
-            android:id="@+id/tvTecTelefono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="0999001122"
-            android:textColor="#000000" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/tvTecTelefono1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teléfono:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <TextView
+                android:id="@+id/tvTecTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Teléfono"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
 
         <!-- Especialidad -->
-        <TextView
-            android:id="@+id/tvTecEspecialidad"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:text="Frenos"
-            android:textColor="#000000" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:padding="4dp">
+
+            <TextView
+                android:id="@+id/tvTecEspecialidad1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Especialidad:"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/tvTecEspecialidad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Especialidad"
+                android:textColor="#000000"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
 
         <!-- Botón eliminar -->
         <Button

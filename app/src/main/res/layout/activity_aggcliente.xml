@@ -4,157 +4,217 @@
   - Inputs para ID, Nombre, Teléfono, Dirección y un Spinner para Tipo (PERSONAL/EMPRESARIAL).
   - Botones Guardar/Cancelar
 -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/aggcliente"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f4f6fc"
-    android:padding="16dp"
-    android:fillViewport="true">
+    android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/head3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
-
-        <LinearLayout
-            android:id="@+id/formContainer"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:layout_marginBottom="83dp"
+        android:fontFamily="sans-serif"
+        android:text="AutoManager"
+        android:textColor="#FF0D1D3D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
             <!-- Título del formulario -->
 
 
-            <TextView
-                android:id="@+id/headCliente"
-                android:layout_width="match_parent"
-                android:layout_height="144dp"
-                android:gravity="center"
-                android:paddingBottom="16dp"
-                android:text="Nuevo Cliente"
-                android:textColor="#FF0D1D3D"
-                android:textSize="30sp"
-                android:textStyle="bold" />
+    <TextView
+        android:id="@+id/headCliente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Nuevo Cliente"
+        android:textColor="#FF0D1D3D"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ID"
-                android:textColor="#333333"
-                android:textStyle="bold" />
 
-            <EditText
-                android:id="@+id/etIdCliente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:hint="Ej. C005"
-                android:textColor="@color/black" />
-
-            <!-- Nombre -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Nombre"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etNombreCliente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:hint="Ej. Ana Torres"
-                android:textColor="@color/black" />
-
-            <!-- Teléfono -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Teléfono"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etTelefonoCliente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:hint="Ej. 0991234567"
-                android:inputType="phone"
-                android:textColor="@color/black" />
-
-            <!-- Dirección -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Dirección"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <EditText
-                android:id="@+id/etDireccionCliente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:hint="Ej. Av. 9 de Octubre"
-                android:textColor="@color/black" />
-
-            <!-- Tipo -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Tipo de Cliente"
-                android:textColor="#333333"
-                android:textStyle="bold" />
-
-            <Spinner
-                android:id="@+id/spTipoCliente"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <!-- Acciones -->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="12dp"
-                android:gravity="end"
-                android:orientation="horizontal">
 
                 <!-- Guardar: en este avance solo cierra el formulario -->
 
-                <Button
-                    android:id="@+id/cancelarbtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#9E0000"
-                    android:onClick="cancelar"
-                    android:text="Cancelar"
-                    android:textColor="#FFFFFF" />
-
-                <Space
-                    android:layout_width="12dp"
-                    android:layout_height="wrap_content" />
-
-                <Button
-                    android:id="@+id/guardarbtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="#FF0D1D3D"
-                    android:onClick="guardarCliente"
-                    android:text="Guardar"
-                    android:textColor="#FFFFFF" />
-            </LinearLayout>
+    <TextView
+        android:id="@+id/tvCodigoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="30dp"
+        android:text="Identificación"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headCliente"/>
 
 
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+    <EditText
+        android:id="@+id/etIdCliente"
+        android:layout_width="347dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Ej. C005"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCodigoLabel" />
+
+    <TextView
+        android:id="@+id/tvNombreLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Nombre"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etIdCliente" />
+
+    <EditText
+        android:id="@+id/etNombreCliente"
+        android:layout_width="347dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Ej. Ana Torres"
+        android:textColor="@color/black"
+        android:padding="16dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvNombreLabel"/>
+
+    <TextView
+        android:id="@+id/tvTelefonoLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Teléfono"
+        android:textColor="#333333"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etNombreCliente" />
+
+    <EditText
+        android:id="@+id/etTelefonoCliente"
+        android:layout_width="347dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Ej. 0991234567"
+        android:inputType="phone"
+        android:textColor="@color/black"
+        android:padding="16dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTelefonoLabel" />
+
+    <TextView
+        android:id="@+id/tvDireccionLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Dirección"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etTelefonoCliente" />
+
+    <EditText
+        android:id="@+id/etDireccionCliente"
+        android:layout_width="347dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Ej. Av. 9 de Octubre"
+        android:textColor="@color/black"
+        android:padding="16dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDireccionLabel" />
+
+    <TextView
+        android:id="@+id/tvTipoClienteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Tipo de Cliente"
+        android:textColor="#333333"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etDireccionCliente"/>
+
+    <Spinner
+        android:id="@+id/spTipoCliente"
+        android:layout_width="347dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTipoClienteLabel"
+        app:layout_constraintVertical_bias="0.055" />
+
+
+    <Button
+        android:id="@+id/cancelarbtn"
+        android:layout_width="121dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#9E0000"
+        android:onClick="cancelar"
+        android:text="Cancelar"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spTipoCliente"/>
+
+    <Button
+        android:id="@+id/guardarbtn"
+        android:layout_width="121dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#FF0D1D3D"
+        android:onClick="guardarCliente"
+        android:text="Guardar"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.937"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/spTipoCliente" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f4f6fc">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/detalleorden"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/head2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="sans-serif"
+            android:text="AutoManager"
+            android:textColor="#FF0D1D3D"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.267"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/retrocederButton"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:contentDescription="Retroceder"
+            android:onClick="retroceder"
+            android:scaleType="centerInside"
+            app:layout_constraintEnd_toStartOf="@+id/head2"
+            app:layout_constraintHorizontal_bias="0.421"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/retrocederiocon" />
+
+        <TextView
+            android:id="@+id/serviciosTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:fontFamily="sans-serif"
+            android:text="Detalle Orden de Servicios"
+            android:textColor="#FF0D1D3D"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/head2" />
+
+        <TextView
+            android:id="@+id/tvCliente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="44dp"
+            android:text="Cliente:"
+            android:textColor="#FF0D1D3D"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/serviciosTitle" />
+
+        <TextView
+            android:id="@+id/tvCliente2"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="28dp"
+            android:background="@android:drawable/editbox_background"
+            android:padding="16dp"
+            android:text="Cliente"
+            android:textColor="#FF0D1D3D"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/serviciosTitle" />
+
+        <TextView
+            android:id="@+id/tvFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="44dp"
+            android:text="Fecha:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCliente" />
+
+        <TextView
+            android:id="@+id/tvFecha2"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:drawable/editbox_background"
+            android:text="Fecha"
+            android:textColor="#FF0D1D3D"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCliente2"/>
+
+        <TextView
+            android:id="@+id/tvTipoVehiculo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="44dp"
+            android:text="Tipo de Vehículo:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFecha" />
+
+        <TextView
+            android:id="@+id/tvTipoVehiculo2"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:drawable/editbox_background"
+            android:text="Placa"
+            android:layout_marginStart="8dp"
+            android:textColor="#FF0D1D3D"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvFecha2"/>
+
+        <TextView
+            android:id="@+id/tvPlaca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="44dp"
+            android:text="Placa:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTipoVehiculo" />
+
+        <TextView
+            android:id="@+id/tvPlaca2"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:drawable/editbox_background"
+            android:text="Placa"
+            android:layout_marginStart="8dp"
+            android:textColor="#FF0D1D3D"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTipoVehiculo2"/>
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="Total a pagar:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlaca" />
+
+        <TextView
+            android:id="@+id/tvTotal2"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@android:drawable/editbox_background"
+            android:text="Total"
+            android:layout_marginStart="8dp"
+            android:textColor="#FF0D1D3D"
+            android:textSize="16sp"
+            android:textStyle="normal"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.90"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlaca2"/>
+
+        <TextView
+            android:id="@+id/tvServicios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:text="Servicios:"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/lstItemsRv"
+            android:layout_width="361dp"
+            android:layout_height="201dp"
+            android:layout_marginTop="14dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvServicios"
+            app:layout_constraintVertical_bias="0.0" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

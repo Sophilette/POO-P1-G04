@@ -1,116 +1,163 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Formulario de Proveedor centrado y con ancho fijo -->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/aggproveedor"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f4f6fc"
-    android:padding="16dp"
-    android:fillViewport="true">
+    android:padding="16dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/head3"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:id="@+id/formContainerProveedor"
-            android:layout_width="340dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+        android:layout_marginBottom="83dp"
+        android:fontFamily="sans-serif"
+        android:text="AutoManager"
+        android:textColor="#FF0D1D3D"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/headProveedor"
-                android:layout_width="match_parent"
-                android:layout_height="161dp"
-                android:gravity="center"
-                android:paddingBottom="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="80dp"
                 android:text="Nuevo Proveedor"
                 android:textColor="#FF0D1D3D"
                 android:textSize="30sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <!-- ID -->
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvCodigoLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ID"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="30dp"
+                android:text="Identificación"
                 android:textColor="#333333"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/headProveedor"/>
 
             <EditText
                 android:id="@+id/etIdProveedor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="347dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="12dp"
                 android:background="@android:drawable/editbox_background"
                 android:hint="Ej. P005"
-                android:textColor="@color/black" />
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvCodigoLabel"/>
 
             <!-- Nombre -->
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvNombreLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="14dp"
                 android:text="Nombre"
                 android:textColor="#333333"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etIdProveedor"/>
 
             <EditText
                 android:id="@+id/etNombreProveedor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="347dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="12dp"
                 android:background="@android:drawable/editbox_background"
                 android:hint="Ej. Repuestos San José"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:padding="16dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvNombreLabel"/>
 
             <!-- Teléfono -->
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvTelefonoLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="14dp"
                 android:text="Teléfono"
                 android:textColor="#333333"
-                android:textStyle="bold" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etNombreProveedor"/>
 
             <EditText
                 android:id="@+id/etTelefonoProveedor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="347dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="12dp"
                 android:background="@android:drawable/editbox_background"
                 android:hint="Ej. 022345678"
                 android:inputType="phone"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:padding="16dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvTelefonoLabel"/>
 
             <!-- Descripción -->
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tvDescripcionLabel"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="14dp"
                 android:text="Descripción"
                 android:textColor="#333333"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/etTelefonoProveedor"/>
 
             <EditText
                 android:id="@+id/etDescripcionProveedor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:drawable/editbox_background"
-                android:hint="Ej. Proveedor de repuestos originales y alternos"
-                android:textColor="@color/black" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="347dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:gravity="end"
-                android:orientation="horizontal">
+                android:background="@android:drawable/editbox_background"
+                android:hint="Ej. Proveedor de repuestos originales y alternos"
+                android:textColor="@color/black"
+                android:padding="16dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDescripcionLabel"/>
+
 
                 <Button
                     android:id="@+id/cancelarProveedorBtn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="121dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="36dp"
                     android:backgroundTint="#9E0000"
                     android:onClick="cancelar"
@@ -120,16 +167,12 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.062"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/etPrecioServicio" />
-
-                <Space
-                    android:layout_width="12dp"
-                    android:layout_height="wrap_content" />
+                    app:layout_constraintTop_toBottomOf="@+id/etDescripcionProveedor"/>
 
                 <Button
                     android:id="@+id/guardarProveedorBtn"
-                    android:layout_width="114dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="121dp"
+                    android:layout_height="50dp"
                     android:layout_marginTop="36dp"
                     android:backgroundTint="#FF0D1D3D"
                     android:onClick="guardarProveedor"
@@ -139,14 +182,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.937"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etPrecioServicio" />
+                    app:layout_constraintTop_toBottomOf="@+id/etDescripcionProveedor"/>
 
 
-            </LinearLayout>
-
-            <!-- Acciones -->
-
-        </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

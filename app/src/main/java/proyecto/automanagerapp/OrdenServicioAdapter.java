@@ -1,6 +1,8 @@
 package proyecto.automanagerapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,14 @@ public class OrdenServicioAdapter extends RecyclerView.Adapter<OrdenServicioAdap
         holder.fechaTextView.setText(String.valueOf(orden.getFecha()));
         holder.placaTextView.setText(orden.getVehiculo().getPlaca());
         holder.totalTextView.setText(String.format("$%.2f",orden.calcularTotal()));
+        holder.detallesButton.setOnClickListener(v -> {
+            // Iniciamos la nueva actividad, pasando información sobre la orden
+            Intent intent = new Intent(context, DetalleOrdenActivity.class);
+            intent.putExtra("orden", orden);
+
+            Log.d("Administrar Ordenes de Servicios","Al dar click en detalles");
+            context.startActivity(intent);
+        });
     }
 
     @Override

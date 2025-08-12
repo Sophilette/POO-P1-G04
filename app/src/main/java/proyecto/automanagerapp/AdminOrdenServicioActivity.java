@@ -37,7 +37,7 @@ public class AdminOrdenServicioActivity extends AppCompatActivity{
 
     // Método que se usa para llenar el RecyclerView con las ordenes de servicio
     private void llenarLista(){
-        recyclerView = findViewById(R.id.lstordenesRv);
+        recyclerView = findViewById(R.id.lstOrdenesRv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));;
         ordenServicioAdapter = new OrdenServicioAdapter(OrdenServicio.obtenerOrdenes(), this);
         recyclerView.setAdapter(ordenServicioAdapter);

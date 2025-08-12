@@ -1,6 +1,8 @@
 package proyecto.modelo;
 
-public abstract class Persona {
+import java.io.Serializable;
+
+public abstract class Persona implements Serializable {
 
     // Variables de instancia
     protected String id;
