@@ -44,7 +44,7 @@ public class AggClienteActivity extends AppCompatActivity {
 
     private void configurarSpinner(){
         spTipo = findViewById(R.id.spTipoCliente);
-        String[] items = new String[]{"PERSONAL","EMPRESARIAL"};
+        String[] items = new String[]{"Personal","Empresarial"};
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, items){
             @Override public View getView(int position, View convertView, ViewGroup parent) {

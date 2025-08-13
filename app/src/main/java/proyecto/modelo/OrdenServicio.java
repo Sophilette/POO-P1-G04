@@ -1,9 +1,10 @@
 package proyecto.modelo;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class OrdenServicio {
+public class OrdenServicio implements Serializable {
 
     // Variables de instancia 
     private Cliente cliente;

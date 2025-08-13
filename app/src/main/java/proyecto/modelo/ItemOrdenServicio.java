@@ -1,6 +1,8 @@
 package proyecto.modelo;
 
-public class ItemOrdenServicio {
+import java.io.Serializable;
+
+public class ItemOrdenServicio implements Serializable {
 
     // Variables de instancia
     private Servicio servicio;

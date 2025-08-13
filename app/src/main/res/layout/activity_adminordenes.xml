@@ -73,7 +73,7 @@
             app:layout_constraintTop_toBottomOf="@id/serviciosTitle" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/lstordenesRv"
+            android:id="@+id/lstOrdenesRv"
             android:layout_width="363dp"
             android:layout_height="495dp"
             android:layout_marginTop="20dp"

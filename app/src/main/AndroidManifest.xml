@@ -85,6 +85,10 @@
             android:name="proyecto.automanagerapp.ReporteTecnicosActivity"
             android:exported="false" />
 
+        <activity
+            android:name="proyecto.automanagerapp.DetalleOrdenActivity"
+            android:exported="false" />
+
 
     </application>
 

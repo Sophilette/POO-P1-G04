@@ -37,7 +37,7 @@ public class AdminServiciosActivity extends AppCompatActivity{
 
     // Método que se usa para llenar el RecyclerView con los servicios
     private void llenarLista(){
-        recyclerView = findViewById(R.id.lstordenesRv);
+        recyclerView = findViewById(R.id.lstServiciosRv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));;
         servicioAdapter = new ServicioAdapter(Servicio.obtenerServicios(), this);
         recyclerView.setAdapter(servicioAdapter);
