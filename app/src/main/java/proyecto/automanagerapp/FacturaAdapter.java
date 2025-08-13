@@ -43,7 +43,7 @@ public class FacturaAdapter extends RecyclerView.Adapter<FacturaAdapter.FacturaV
     }
 
     public class FacturaViewHolder extends RecyclerView.ViewHolder {
-        TextView tvEmpresa, tvFecha, tvTotal;
+        TextView tvEmpresa, tvFecha, tvPeriodo, tvTotal;
         Button btnDetalles;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -51,6 +51,7 @@ public class FacturaAdapter extends RecyclerView.Adapter<FacturaAdapter.FacturaV
             super(itemView);
             tvEmpresa = itemView.findViewById(R.id.tvFacturaEmpresa);
             tvFecha = itemView.findViewById(R.id.tvFacturaFecha);
+            tvPeriodo = itemView.findViewById(R.id.tvFacturaPeriodo);
             tvTotal = itemView.findViewById(R.id.tvFacturaTotal);
             btnDetalles = itemView.findViewById(R.id.btnDetallesFactura);
         }
@@ -58,6 +59,7 @@ public class FacturaAdapter extends RecyclerView.Adapter<FacturaAdapter.FacturaV
         void bind(Factura factura, final int position) {
             tvEmpresa.setText(factura.getCliente().getNombre());
             tvFecha.setText(factura.getFechaEmision().format(formatter));
+            tvPeriodo.setText(factura.getPeriodo());
             tvTotal.setText(String.format(Locale.getDefault(), "$%.2f", factura.calcularTotal()));
 
             // Manejar el clic del botón "Más Detalles"
