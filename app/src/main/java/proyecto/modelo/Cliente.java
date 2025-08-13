@@ -59,5 +59,11 @@ public class Cliente extends Persona implements Serializable {
         }
         return lstNombres;
     }
+
+    @Override
+    public String toString() {
+        // Devuelve el nombre, que es lo que queremos ver en el Spinner.
+        return this.getNombre();
+    }
   
 }
