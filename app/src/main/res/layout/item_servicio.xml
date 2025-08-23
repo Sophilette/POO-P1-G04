@@ -15,7 +15,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/tvCliente"
+            android:id="@+id/tvCodigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Código"
@@ -24,7 +24,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvFecha"
+            android:id="@+id/tvNombreServicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -32,7 +32,7 @@
             android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/tvPlaca"
+            android:id="@+id/tvPrecio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -40,7 +40,7 @@
             android:textColor="#000000" />
 
         <Button
-            android:id="@+id/btndetalles"
+            android:id="@+id/btneditar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

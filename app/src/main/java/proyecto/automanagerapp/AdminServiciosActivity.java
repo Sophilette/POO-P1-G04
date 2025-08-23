@@ -2,6 +2,7 @@ package proyecto.automanagerapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 
@@ -16,6 +17,8 @@ import proyecto.modelo.Servicio;
 
 import com.example.automanager.R;
 
+import java.util.ArrayList;
+
 public class AdminServiciosActivity extends AppCompatActivity{
     private RecyclerView recyclerView;
     private ServicioAdapter servicioAdapter;
@@ -25,7 +28,7 @@ public class AdminServiciosActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_adminservicio);
-        llenarLista();
+        cargarDatos();
 
         Log.d("Administrar Servicios","en onCreate");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.adminservicio), (v, insets) -> {
@@ -38,9 +41,33 @@ public class AdminServiciosActivity extends AppCompatActivity{
     // Método que se usa para llenar el RecyclerView con los servicios
     private void llenarLista(){
         recyclerView = findViewById(R.id.lstServiciosRv);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));;
-        servicioAdapter = new ServicioAdapter(Servicio.obtenerServicios(), this);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Configurar el adapter
+        ArrayList<Servicio> lstServicios = new ArrayList<>();
+        try{
+            lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+            Log.d("AutoManager", "Datos leidos desde el archivo");
+        }catch(Exception e){
+            lstServicios = Servicio.obtenerServicios();
+            Log.d("AutoManager", "Error al cargar datos"+e.getMessage());
+        }
+
+        Log.d("AutoManager",lstServicios.toString()); //muestra la lista en el log
+        servicioAdapter = new ServicioAdapter(lstServicios, this);
         recyclerView.setAdapter(servicioAdapter);
+    }
+
+    private void cargarDatos(){
+        boolean guardado = false;
+        try{
+            guardado = Servicio.crearDatosIniciales(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+        }catch(Exception e){
+            guardado = false;
+            Log.d("AutoManager", "Error al crear los datos iniciales"+e.getMessage());
+        }
+        if(guardado){
+            Log.d("AutoManager", "Datos iniciales guardados");
+        }
     }
 
     // Método llamado al dar click en boton retroceder
@@ -53,5 +80,12 @@ public class AdminServiciosActivity extends AppCompatActivity{
         Intent intent = new Intent(this, AggServicioActivity.class);
         Log.d("App","Al dar click en Agregar");
         this.startActivity(intent);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        llenarLista();
+        Log.d("Administrar Servicios","En onResume"); //muestra la lista en el log
     }
 }

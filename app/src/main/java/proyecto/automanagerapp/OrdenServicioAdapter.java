@@ -64,7 +64,7 @@ public class OrdenServicioAdapter extends RecyclerView.Adapter<OrdenServicioAdap
             fechaTextView = itemView.findViewById(R.id.tvFecha2);
             placaTextView = itemView.findViewById(R.id.tvPlaca2);
             totalTextView = itemView.findViewById(R.id.tvTotal2);
-            detallesButton = itemView.findViewById(R.id.btndetalles);}
+            detallesButton = itemView.findViewById(R.id.btneditar);}
 
     }
 }

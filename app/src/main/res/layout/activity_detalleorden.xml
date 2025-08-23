@@ -57,7 +57,7 @@
             app:layout_constraintTop_toBottomOf="@id/head2" />
 
         <TextView
-            android:id="@+id/tvCliente"
+            android:id="@+id/tvCodigo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -86,7 +86,7 @@
             app:layout_constraintTop_toBottomOf="@+id/serviciosTitle" />
 
         <TextView
-            android:id="@+id/tvFecha"
+            android:id="@+id/tvNombreServicio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -96,7 +96,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvCliente" />
+            app:layout_constraintTop_toBottomOf="@+id/tvCodigo" />
 
         <TextView
             android:id="@+id/tvFecha2"
@@ -124,7 +124,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvFecha" />
+            app:layout_constraintTop_toBottomOf="@+id/tvNombreServicio" />
 
         <TextView
             android:id="@+id/tvTipoVehiculo2"
@@ -144,7 +144,7 @@
             app:layout_constraintTop_toBottomOf="@+id/tvFecha2"/>
 
         <TextView
-            android:id="@+id/tvPlaca"
+            android:id="@+id/tvPrecio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -184,7 +184,7 @@
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvPlaca" />
+            app:layout_constraintTop_toBottomOf="@+id/tvPrecio" />
 
         <TextView
             android:id="@+id/tvTotal2"

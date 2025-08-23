@@ -60,10 +60,10 @@ public class ServicioAdapter extends RecyclerView.Adapter<ServicioAdapter.Servic
 
         public ServicioViewHolder(View itemView) {
             super(itemView);
-            codigoTextView = itemView.findViewById(R.id.tvCliente);
-            nombreTextView = itemView.findViewById(R.id.tvFecha);
-            precioTextView = itemView.findViewById(R.id.tvPlaca);
-            editarButton = itemView.findViewById(R.id.btndetalles);}
+            codigoTextView = itemView.findViewById(R.id.tvCodigo);
+            nombreTextView = itemView.findViewById(R.id.tvNombreServicio);
+            precioTextView = itemView.findViewById(R.id.tvPrecio);
+            editarButton = itemView.findViewById(R.id.btneditar);}
 
     }
 

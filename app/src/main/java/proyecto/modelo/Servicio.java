@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 public class Servicio implements Serializable {
 
@@ -12,6 +18,8 @@ public class Servicio implements Serializable {
     private String nombre;
     private double precioActual;
     private ArrayList<PrecioHistorial> historialPrecios; // Lista de historial de precios
+
+    public static final String nomArchivo = "servicios.ser";
 
     // Constructor
     public Servicio(String codigo, String nombre, double precioActual) {
@@ -87,5 +95,64 @@ public class Servicio implements Serializable {
         }
         return lstCodigos;
     }
+
+    // Leer el archivo donde se encuentran los datos de los servicios
+    public static ArrayList<Servicio> cargarServicios(File directorio) {
+        ArrayList<Servicio> lstServicios = new ArrayList<>();
+        File f = new File(directorio, nomArchivo);
+        // Escribir la lista serializable
+        if(f.exists()){
+            try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))){
+                lstServicios = (ArrayList<Servicio>) ois.readObject();
+            }catch(Exception e){
+                new Exception(e.getMessage());
+            }
+        }
+        return lstServicios;
+
+    }
+
+    /**
+     * @param directorio directorio en android donde se guardará el archivo
+     * @return true si se pudo crear el archivo o ya existe.
+     */
+
+    public static boolean crearDatosIniciales(File directorio) throws Exception{
+        ArrayList<Servicio> lstServicios = obtenerServicios();
+        boolean guardado = false;
+
+        /*lstServicios.add(new Servicio("S001", "Cambio de aceite", 20.00));
+        lstServicios.add(new Servicio("S002", "Cambio de filtro", 15.00));
+        lstServicios.add(new Servicio("S003", "Alineación", 30.00));
+        lstServicios.add(new Servicio("S004", "Balanceo", 25.00));
+        lstServicios.add(new Servicio("S005", "Revisión de frenos", 35.00));
+        lstServicios.add(new Servicio("S006", "Diagnóstico electrónico", 40.00));*/
+
+        File f = new File(directorio, nomArchivo);
+        if(!f.exists()){
+            try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f))){
+                oos.writeObject(lstServicios);
+                guardado = true;
+            }catch(IOException e){
+                throw new Exception(e.getMessage());
+            }
+        }else guardado = true;
+        return guardado;
+    }
+
+    public static boolean guardarServicios(ArrayList<Servicio> lstServicios, File directorio) throws Exception{
+        boolean guardado = false;
+        File f = new File(directorio, nomArchivo);
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f))){
+            oos.writeObject(lstServicios);
+            guardado = true;
+        }catch(IOException e){
+            throw new Exception(e.getMessage());
+        }
+        return guardado;
+    }
+
     
 }
+
+

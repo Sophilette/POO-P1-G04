@@ -8,16 +8,6 @@
     android:background="#f4f6fc"
     android:padding="24dp">
 
-    <Spinner
-        android:id="@+id/spCodServicio"
-        android:layout_width="337dp"
-        android:layout_height="52dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCodigoLabel"
-        app:layout_constraintVertical_bias="0.055" />
-
     <TextView
         android:id="@+id/head3"
         android:layout_width="wrap_content"
@@ -70,6 +60,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="32dp"
         android:backgroundTint="#FF0D1D3D"
+        android:onClick="guardar"
         android:text="Guardar"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
@@ -104,7 +95,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spCodServicio" />
+        app:layout_constraintTop_toBottomOf="@+id/tvCodigoServicio" />
 
     <TextView
         android:id="@+id/tvCodigoLabel"
@@ -118,5 +109,21 @@
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+
+    <TextView
+        android:id="@+id/tvCodigoServicio"
+        android:layout_width="337dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:drawable/editbox_background"
+        android:text="Código del Servicio"
+        android:padding="16dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvCodigoLabel" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

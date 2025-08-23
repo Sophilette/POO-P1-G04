@@ -1,13 +1,12 @@
 package proyecto.automanagerapp;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -41,27 +40,41 @@ public class EditarServicioActivity extends AppCompatActivity{
         Intent i = getIntent();
         servicio = (Servicio) i.getSerializableExtra("servicio");
         EditText etPrecioServicio = findViewById(R.id.etPrecioServicio);
+        TextView tvCodigoServicio = findViewById(R.id.tvCodigoServicio);
         etPrecioServicio.setText(String.format("%.2f",servicio.getPrecioActual()));
-
-        Spinner spCodServicio = findViewById(R.id.spCodServicio);
-        ArrayList<String> lstCodigos = Servicio.obtenerCodigos();
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, lstCodigos){
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                ((TextView) view).setTextColor(Color.BLACK); // cambia el color del texto
-                return view;
-            }
-        };
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spCodServicio.setAdapter(adapter);
-        int spinnerPosition = adapter.getPosition(servicio.getCodigo());
-        spCodServicio.setSelection(spinnerPosition);
+        tvCodigoServicio.setText(servicio.getCodigo());
 
     }
 
     //método llamado al dar click en botón cancelar
     public void cancelar(View view){
         finish();
+    }
+
+    //metodo para guardar cambios, agregar precio al historial
+    public void guardar(View view){
+        // recolectar el precio del formulario
+        EditText etPrecioServicio = findViewById(R.id.etPrecioServicio);
+        double precio = Double.parseDouble(etPrecioServicio.getText().toString());
+        servicio.setPrecioActual(precio);
+        servicio.registrarPrecioEnHistorial(precio);
+
+        // actualizar el precio en la lista de servicios
+        ArrayList<Servicio> lstServicios = new ArrayList<>();
+        try{
+            lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+            int i = lstServicios.indexOf(servicio);
+            lstServicios.set(i, servicio);
+            Log.d("AutoManager", "Actualizado en lstServicios");
+            //guardar la lista en en el archivo
+            Servicio.guardarServicios(lstServicios, this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+            Toast.makeText(getApplicationContext(), "Datos guardados", Toast.LENGTH_SHORT).show();
+
+        }catch(Exception e){
+            Log.d("AuotoManager", "Error al cargar datos al editar"+e.getMessage());
+
+        }
+        finish();
+
     }
 }
