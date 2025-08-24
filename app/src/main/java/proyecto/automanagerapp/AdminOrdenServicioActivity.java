@@ -73,7 +73,6 @@ public class AdminOrdenServicioActivity extends AppCompatActivity{
     }
 
     //se llama al dar click en Agregar
-
     public void agregarOrdenServicio(View view){
         Intent intent = new Intent(this, AggOrdenesServicioActivity.class);
 

@@ -50,6 +50,7 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
         });
     }
 
+    // Método que se usa para llenar los spinners
     private void llenarSpinners(){
         // llenar el spinner de nombres de clientes
         Spinner spClienteNombre = findViewById(R.id.spClienteNombre);
@@ -131,13 +132,15 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
         int cantidad = Integer.parseInt(etCantidadServicio.getText().toString());
         ItemOrdenServicio item = new ItemOrdenServicio(servicio, cantidad);
         Log.d("AutoManager", item.toString());
+
         // Agregar el item a la lista
         lstItems.add(item);
-        // Actualizar el RecyclerView
 
+        // Actualizar el RecyclerView
         recyclerView = findViewById(R.id.lstServiciosAgg);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        //Llenar el recyclerView con los items de la orden de servicios
         if (lstItems != null){
             itemOrdenServicioAdapter = new ItemOrdenServicioAdapter(lstItems, this);
             recyclerView.setAdapter(itemOrdenServicioAdapter);
@@ -157,6 +160,7 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
     //Guardar nueva orden de servicio en el archivo
 
     public void guardar(View view){
+
         // Obtener los datos del formulario
         Spinner spClienteNombre = findViewById(R.id.spClienteNombre); //obtener cliente a partir del nombre
         EditText etFecha = findViewById(R.id.fecha);
@@ -194,8 +198,7 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
                 ordenServicio.agregarItem(item);}
         }
 
-
-
+        // Guardar la orden de servicio en el archivo
         ArrayList<OrdenServicio> lstOrdenes = new ArrayList<>();
         try{
             lstOrdenes=OrdenServicio.cargarOrdenes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));

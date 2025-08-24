@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         this.startActivity(intent);
     }
 
+    //se llama al dar click en Generar Orden de Servicios
     public void adminordenes(View view){
         Intent intent = new Intent(this, AdminOrdenServicioActivity.class);
         Log.d("App","Al dar click en Generar Orden de Servicios");

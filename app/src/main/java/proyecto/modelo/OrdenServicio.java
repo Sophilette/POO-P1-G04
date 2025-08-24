@@ -78,6 +78,8 @@ public class OrdenServicio implements Serializable {
         }
         return total;
     }
+
+    // Obtener las ordenes de servicio disponibles
     public static ArrayList<OrdenServicio> obtenerOrdenes(){
         ArrayList<OrdenServicio> lstOrdenes = new ArrayList<>();
         ArrayList<Cliente> clientes = Cliente.obtenerClientes();
@@ -152,6 +154,10 @@ public class OrdenServicio implements Serializable {
         }
         return lstOrdenes;
     }
+
+    /**
+    * @param directorio directorio en android donde se guardará el archivo
+    * @return true si se pudo crear el archivo o ya existe.*/
 
     public static boolean guardarOrdenes(ArrayList<OrdenServicio> lstOrdenes, File directorio) throws Exception {
         boolean guardado = false;

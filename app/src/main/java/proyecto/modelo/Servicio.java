@@ -70,6 +70,7 @@ public class Servicio implements Serializable {
         return Objects.hashCode(codigo);
     }
 
+    // Obtener los servicios disponibles
     public static ArrayList<Servicio> obtenerServicios(){
         ArrayList<Servicio> lstServicios = new ArrayList<>();
 
@@ -82,6 +83,7 @@ public class Servicio implements Serializable {
 
         return lstServicios;
     }
+
     @Override
     public String toString() {
         return  codigo +  " - " + nombre + " - " + precioActual;

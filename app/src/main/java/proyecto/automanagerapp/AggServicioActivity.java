@@ -61,7 +61,7 @@ public class AggServicioActivity extends AppCompatActivity{
                 }
 
             }
-            String codigo = "S" + String.format("%03d", max + 1);
+            String codigo = "S" + String.format("%03d", max + 1); // Genera el código autoincremental
             Servicio nuevoServicio = new Servicio(codigo, nombre, precio);
             Log.d("AutoManager", nuevoServicio.toString());
             lstServicios.add(nuevoServicio);
