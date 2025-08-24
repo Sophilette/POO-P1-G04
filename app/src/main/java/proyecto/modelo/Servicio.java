@@ -87,31 +87,6 @@ public class Servicio implements Serializable {
         return  codigo +  " - " + nombre + " - " + precioActual;
     }
 
-    public static ArrayList<String> obtenerCodigos(){
-        ArrayList<String> lstCodigos = new ArrayList<>();
-        ArrayList<Servicio> lstServicios = obtenerServicios();
-        for (Servicio servicio : lstServicios) {
-            lstCodigos.add(servicio.getCodigo());
-        }
-        return lstCodigos;
-    }
-
-    // Leer el archivo donde se encuentran los datos de los servicios
-    /*public static ArrayList<Servicio> cargarServicios(File directorio) {
-        ArrayList<Servicio> lstServicios = new ArrayList<>();
-        File f = new File(directorio, nomArchivo);
-        // Escribir la lista serializable
-        if(f.exists()){
-            try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))){
-                lstServicios = (ArrayList<Servicio>) ois.readObject();
-            }catch(Exception e){
-                new Exception(e.getMessage());
-            }
-        }
-        return lstServicios;
-
-    }*/
-
     // Leer el archivo donde se encuentran los datos de los servicios
     public static ArrayList<Servicio> cargarServicios(File directorio) {
         ArrayList<Servicio> lstServicios = new ArrayList<>();
@@ -122,14 +97,14 @@ public class Servicio implements Serializable {
                 lstServicios = (ArrayList<Servicio>) ois.readObject();
             } catch (Exception e) {
                 // Manejar la excepción, por ejemplo, reiniciando los datos
-                e.printStackTrace();
+                new Exception(e.getMessage());
                 // Si hay un error, cargar los datos iniciales para no dejar la lista vacía
                 lstServicios = obtenerServicios();
                 try {
                     // Y guardarlos para solucionar el problema de persistencia
                     guardarServicios(lstServicios, directorio);
                 } catch (Exception ex) {
-                    ex.printStackTrace();
+                    new Exception(ex.getMessage());
                 }
             }
         } else {
@@ -149,29 +124,6 @@ public class Servicio implements Serializable {
      * @param directorio directorio en android donde se guardará el archivo
      * @return true si se pudo crear el archivo o ya existe.
      */
-
-    public static boolean crearDatosIniciales(File directorio) throws Exception{
-        ArrayList<Servicio> lstServicios = obtenerServicios();
-        boolean guardado = false;
-
-        /*lstServicios.add(new Servicio("S001", "Cambio de aceite", 20.00));
-        lstServicios.add(new Servicio("S002", "Cambio de filtro", 15.00));
-        lstServicios.add(new Servicio("S003", "Alineación", 30.00));
-        lstServicios.add(new Servicio("S004", "Balanceo", 25.00));
-        lstServicios.add(new Servicio("S005", "Revisión de frenos", 35.00));
-        lstServicios.add(new Servicio("S006", "Diagnóstico electrónico", 40.00));*/
-
-        File f = new File(directorio, nomArchivo);
-        if(!f.exists()){
-            try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f))){
-                oos.writeObject(lstServicios);
-                guardado = true;
-            }catch(IOException e){
-                throw new Exception(e.getMessage());
-            }
-        }else guardado = true;
-        return guardado;
-    }
 
     public static boolean guardarServicios(ArrayList<Servicio> lstServicios, File directorio) throws Exception{
         boolean guardado = false;

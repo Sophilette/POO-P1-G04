@@ -1,6 +1,5 @@
 package proyecto.automanagerapp;
 
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Environment;
@@ -83,22 +82,29 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
         // llenar el spinner de codigos de servicios
         Spinner spCodigoServicio = findViewById(R.id.spCodigoServicio);
         //Cargar los servicios desde el archivo para obtener los codigo
-        ArrayList<Servicio> lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+        ArrayList<Servicio> lstServicios = new ArrayList<>();
 
-        ArrayList<String> lstCodigos = new ArrayList<>();
-        for (Servicio servicio : lstServicios) {
-            lstCodigos.add(servicio.getCodigo());
-        };
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, lstCodigos){
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                ((TextView) view).setTextColor(Color.BLACK); // cambia el color del texto
-                return view;
-            }
-        };
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spCodigoServicio.setAdapter(adapter2);
+        try{
+            lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+
+            ArrayList<String> lstCodigos = new ArrayList<>();
+            for (Servicio servicio : lstServicios) {
+                lstCodigos.add(servicio.getCodigo());
+            };
+            ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, lstCodigos){
+                @Override
+                public View getView(int position, View convertView, ViewGroup parent) {
+                    View view = super.getView(position, convertView, parent);
+                    ((TextView) view).setTextColor(Color.BLACK); // cambia el color del texto
+                    return view;
+                }
+            };
+            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+            spCodigoServicio.setAdapter(adapter2);
+
+        }catch (Exception e){
+            Log.d("AutoManager","Error al cargar datos"+e.getMessage());
+        }
 
     }
 
@@ -109,12 +115,18 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
 
         // Seleccionar en el archivo el servicio correspondiente al codigo seleccionado
         Servicio servicio = null;
-        ArrayList<Servicio> lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
-        for (Servicio s : lstServicios) {
-            if (s.getCodigo().equals(spCodigoServicio.getSelectedItem().toString())) {
-                servicio = s;
+        ArrayList<Servicio> lstServicios = new ArrayList<>();
+        try{
+            lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+            for (Servicio s : lstServicios) {
+                if (s.getCodigo().equals(spCodigoServicio.getSelectedItem().toString())) {
+                    servicio = s;
+                }
             }
+        }catch (Exception e){
+            Log.d("AutoManager","Error al cargar datos"+e.getMessage());
         }
+
         EditText etCantidadServicio = findViewById(R.id.cantidadServicio);
         int cantidad = Integer.parseInt(etCantidadServicio.getText().toString());
         ItemOrdenServicio item = new ItemOrdenServicio(servicio, cantidad);
@@ -160,7 +172,7 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
             }
         }
 
-        LocalDate fecha = etFecha.getText().toString().equals("") ? LocalDate.now() : LocalDate.parse(etFecha.getText().toString());
+        LocalDate fecha = etFecha.getText().toString().equals("") ? LocalDate.now() : LocalDate.parse(etFecha.getText().toString().replace("/" , "-"));
 
         //Datos para crear instancia de carro
         Vehiculo.TipoVehiculo tipoVehiculo = spTipoVehiculo.getSelectedItem().toString().equals("Automovil") ? Vehiculo.TipoVehiculo.AUTOMOVIL : spTipoVehiculo.getSelectedItem().toString().equals("Motocicleta") ? Vehiculo.TipoVehiculo.MOTOCICLETA : Vehiculo.TipoVehiculo.BUS;

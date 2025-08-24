@@ -136,7 +136,7 @@ public class OrdenServicio implements Serializable {
                     // Y guardarlos para solucionar el problema de persistencia
                     guardarOrdenes(lstOrdenes, directorio);
                 } catch (Exception ex) {
-                    ex.printStackTrace();
+                    new Exception(ex.getMessage());
                 }
 
             }
@@ -147,7 +147,7 @@ public class OrdenServicio implements Serializable {
                 // Y guarda la lista en el archivo
                 guardarOrdenes(lstOrdenes, directorio);
             } catch (Exception e) {
-                e.printStackTrace();
+                new Exception(e.getMessage());
             }
         }
         return lstOrdenes;

@@ -28,7 +28,6 @@ public class AdminServiciosActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_adminservicio);
-        //cargarDatos();
 
         Log.d("Administrar Servicios","en onCreate");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.adminservicio), (v, insets) -> {
@@ -43,33 +42,18 @@ public class AdminServiciosActivity extends AppCompatActivity{
         recyclerView = findViewById(R.id.lstServiciosRv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         // Configurar el adapter
-        ArrayList<Servicio> lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
-        Log.d("AdminServiciosActivity", "Datos leídos desde el archivo: " + lstServicios.size() + " servicios");
-        /*ArrayList<Servicio> lstServicios = new ArrayList<>();
+        ArrayList<Servicio> lstServicios = new ArrayList<>();
         try{
             lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
             Log.d("AutoManager", "Datos leidos desde el archivo");
         }catch(Exception e){
             lstServicios = Servicio.obtenerServicios();
             Log.d("AutoManager", "Error al cargar datos"+e.getMessage());
-        }*/
+        }
 
         Log.d("AutoManager",lstServicios.toString()); //muestra la lista en el log
         servicioAdapter = new ServicioAdapter(lstServicios, this);
         recyclerView.setAdapter(servicioAdapter);
-    }
-
-    private void cargarDatos(){
-        boolean guardado = false;
-        try{
-            guardado = Servicio.crearDatosIniciales(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
-        }catch(Exception e){
-            guardado = false;
-            Log.d("AutoManager", "Error al crear los datos iniciales"+e.getMessage());
-        }
-        if(guardado){
-            Log.d("AutoManager", "Datos iniciales guardados");
-        }
     }
 
     // Método llamado al dar click en boton retroceder

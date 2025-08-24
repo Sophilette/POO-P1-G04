@@ -29,7 +29,7 @@ public class AdminOrdenServicioActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_adminordenes);
-        llenarLista();
+        //llenarLista();
 
         Log.d("Administrar Ordenes de Servicio","en onCreate");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.adminordenes), (v, insets) -> {
@@ -44,8 +44,16 @@ public class AdminOrdenServicioActivity extends AppCompatActivity{
         recyclerView = findViewById(R.id.lstOrdenesRv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));;
         // Configurar el adapter
-        ArrayList<OrdenServicio> lstOrdenes = OrdenServicio.cargarOrdenes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
-        Log.d("AdminOrdenServicioActivity", "Datos leídos desde el archivo: " + lstOrdenes.size() + " ordenes");
+        ArrayList<OrdenServicio> lstOrdenes = new ArrayList<>();
+        try{
+            lstOrdenes = OrdenServicio.cargarOrdenes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+            Log.d("AutoManager", "Datos leidos desde el archivo");
+        }catch(Exception e){
+            lstOrdenes = OrdenServicio.obtenerOrdenes();
+            Log.d("AutoManager", "Error al cargar datos"+e.getMessage());
+        }
+
+
         Log.d("AutoManager",lstOrdenes.toString()); //muestra la lista en el log
 
         ordenServicioAdapter = new OrdenServicioAdapter(lstOrdenes, this);
