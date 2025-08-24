@@ -52,9 +52,24 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
 
     // Método que se usa para llenar los spinners
     private void llenarSpinners(){
+
         // llenar el spinner de nombres de clientes
         Spinner spClienteNombre = findViewById(R.id.spClienteNombre);
-        ArrayList<String> lstNombres = Cliente.obtenerNombres();
+
+        //Cargar los clientes desde el archivo para obtener los nombres
+        ArrayList<Cliente> lstClientes = new ArrayList<>();
+        ArrayList<String> lstNombres = new ArrayList<>();
+        try{
+            lstClientes = Cliente.cargarClientes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+            for (Cliente cliente : lstClientes) {
+                lstNombres.add(cliente.getNombre());
+            };
+        }catch (Exception e){
+            lstNombres = Cliente.obtenerNombres();
+            Log.d("AutoManager","Error al cargar datos"+e.getMessage());
+        }
+
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, lstNombres){
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -84,28 +99,27 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
         Spinner spCodigoServicio = findViewById(R.id.spCodigoServicio);
         //Cargar los servicios desde el archivo para obtener los codigo
         ArrayList<Servicio> lstServicios = new ArrayList<>();
+        ArrayList<String> lstCodigos = new ArrayList<>();
 
         try{
             lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
-
-            ArrayList<String> lstCodigos = new ArrayList<>();
             for (Servicio servicio : lstServicios) {
                 lstCodigos.add(servicio.getCodigo());
             };
-            ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, lstCodigos){
-                @Override
-                public View getView(int position, View convertView, ViewGroup parent) {
-                    View view = super.getView(position, convertView, parent);
-                    ((TextView) view).setTextColor(Color.BLACK); // cambia el color del texto
-                    return view;
-                }
-            };
-            adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-            spCodigoServicio.setAdapter(adapter2);
-
         }catch (Exception e){
+            lstCodigos = Servicio.obtenerCodigos();
             Log.d("AutoManager","Error al cargar datos"+e.getMessage());
         }
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, lstCodigos){
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                ((TextView) view).setTextColor(Color.BLACK); // cambia el color del texto
+                return view;
+            }
+        };
+        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spCodigoServicio.setAdapter(adapter2);
 
     }
 
@@ -185,8 +199,22 @@ public class AggOrdenesServicioActivity extends AppCompatActivity{
 
         // Asignar tecnico de manera aleatoria
         Random random = new Random();
-        int indiceAleatorio = random.nextInt(Tecnico.obtenerTecnicos().size());
-        Tecnico tecnicoAsignado = Tecnico.obtenerTecnicos().get(indiceAleatorio);
+        // Cargar los técnicos desde el archivo
+        ArrayList<Tecnico> lstTecnicos = new ArrayList<>();
+        int indiceAleatorio = 0;
+        Tecnico tecnicoAsignado = null;
+
+        try{
+            lstTecnicos = Tecnico.cargarTecnicos(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+            indiceAleatorio = random.nextInt(lstTecnicos.size());
+            tecnicoAsignado = lstTecnicos.get(indiceAleatorio);
+
+        }catch (Exception e){
+            indiceAleatorio = random.nextInt(Tecnico.obtenerTecnicos().size());
+            tecnicoAsignado = Tecnico.obtenerTecnicos().get(indiceAleatorio);
+            Log.d("AutoManager","Error al cargar datos"+e.getMessage());
+        }
+
 
         // Crear la orden de servicio
         OrdenServicio ordenServicio = new OrdenServicio(cliente, vehiculo, tecnicoAsignado, fecha);

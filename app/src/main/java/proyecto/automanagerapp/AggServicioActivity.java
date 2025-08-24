@@ -76,6 +76,4 @@ public class AggServicioActivity extends AppCompatActivity{
         finish();
     }
 
-
-
 }

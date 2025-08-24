@@ -49,46 +49,57 @@
 
         <activity
             android:name="proyecto.automanagerapp.AdminClientesActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.AggClienteActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.AdminProveedoresActivity"
+            android:screenOrientation="portrait"
             android:exported="false"/>
 
         <activity
             android:name="proyecto.automanagerapp.AggProveedorActivity"
+            android:screenOrientation="portrait"
             android:exported="false"/>
 
         <activity
             android:name="proyecto.automanagerapp.AdminTecnicosActivity"
+            android:screenOrientation="portrait"
             android:exported="false"/>
 
         <activity
             android:name="proyecto.automanagerapp.AggTecnicoActivity"
+            android:screenOrientation="portrait"
             android:exported="false"/>
 
         <activity
             android:name="proyecto.automanagerapp.AdminFacturasActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.GenerarFacturaActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.DetalleFacturaActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.ReporteServiciosActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.ReporteTecnicosActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
