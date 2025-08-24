@@ -13,6 +13,7 @@
         android:theme="@style/Theme.AutoManager">
         <activity
             android:name="proyecto.automanagerapp.MainActivity"
+            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,22 +24,27 @@
 
         <activity
             android:name="proyecto.automanagerapp.AdminServiciosActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.AggServicioActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.EditarServicioActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.AdminOrdenServicioActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
             android:name="proyecto.automanagerapp.AggOrdenesServicioActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
         <activity
@@ -87,6 +93,7 @@
 
         <activity
             android:name="proyecto.automanagerapp.DetalleOrdenActivity"
+            android:screenOrientation="portrait"
             android:exported="false" />
 
 
