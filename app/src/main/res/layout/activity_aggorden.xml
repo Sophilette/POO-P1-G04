@@ -33,9 +33,7 @@
             android:text="Cliente"
             android:textColor="#333333"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spClienteNombre"
@@ -44,26 +42,44 @@
             android:layout_marginTop="8dp" />
 
         <TextView
-            android:id="@+id/tvNombreServicio"
+            android:id="@+id/tvFecha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Fecha"
             android:textColor="#333333"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/fecha"
+        <LinearLayout
+            android:id="@+id/layoutFechaSpinners"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@android:drawable/editbox_background"
-            android:hint="AAAA-MM-DD"
-            android:inputType="date"
-            android:textColor="@color/black" />
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Spinner
+                android:id="@+id/spAnio"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/spMes"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp" />
+
+            <Spinner
+                android:id="@+id/spDia"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
 
         <TextView
             android:id="@+id/tvtipoVehiculo"
@@ -73,9 +89,7 @@
             android:text="Tipo de Vehículo"
             android:textColor="#333333"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+            android:textStyle="bold" />
 
         <Spinner
             android:id="@+id/spTipoVehiculo"
@@ -91,18 +105,47 @@
             android:text="Placa"
             android:textColor="#333333"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/placa"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:background="@android:drawable/editbox_background"
-            android:hint="Ej. ABC-123"
-            android:textColor="@color/black" />
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/etPlacaLetras"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_background"
+                android:hint="ABC"
+                android:inputType="textCapCharacters"
+                android:maxLength="3"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="-"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etPlacaNumeros"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:drawable/editbox_background"
+                android:hint="123"
+                android:inputType="number"
+                android:maxLength="3"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
         <View
             android:id="@+id/divider"
@@ -119,9 +162,7 @@
             android:text="Servicio"
             android:textColor="#333333"
             android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -156,7 +197,6 @@
             android:text="Agregar"
             android:textColor="#FFFFFF" />
 
-        <!-- Servicios agregados -->
         <TextView
             android:id="@+id/serviciosaggTv"
             android:layout_width="match_parent"
