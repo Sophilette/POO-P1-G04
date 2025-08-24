@@ -55,7 +55,7 @@ public class EditarServicioActivity extends AppCompatActivity{
     public void guardar(View view){
         // recolectar el precio del formulario
         EditText etPrecioServicio = findViewById(R.id.etPrecioServicio);
-        double precio = Double.parseDouble(etPrecioServicio.getText().toString());
+        double precio = Double.parseDouble(etPrecioServicio.getText().toString().replace(',', '.'));
         servicio.setPrecioActual(precio);
         servicio.registrarPrecioEnHistorial(precio);
 

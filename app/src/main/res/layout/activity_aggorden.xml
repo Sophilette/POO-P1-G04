@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:background="@android:drawable/editbox_background"
-            android:hint="mm/dd/yyyy"
+            android:hint="AAAA-MM-DD"
             android:inputType="date"
             android:textColor="@color/black" />
 
@@ -152,6 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:backgroundTint="#FF0D1D3D"
+            android:onClick="agregarItem"
             android:text="Agregar"
             android:textColor="#FFFFFF" />
 
@@ -188,6 +189,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:backgroundTint="#FF0D1D3D"
+            android:onClick="guardar"
             android:text="Guardar"
             android:textColor="#FFFFFF" />
     </LinearLayout>

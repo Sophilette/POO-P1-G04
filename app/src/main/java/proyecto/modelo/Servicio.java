@@ -62,7 +62,7 @@ public class Servicio implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Servicio servicio = (Servicio) o;
-        return codigo == servicio.codigo;
+        return Objects.equals(codigo, servicio.codigo);
     }
 
     @Override
@@ -97,7 +97,7 @@ public class Servicio implements Serializable {
     }
 
     // Leer el archivo donde se encuentran los datos de los servicios
-    public static ArrayList<Servicio> cargarServicios(File directorio) {
+    /*public static ArrayList<Servicio> cargarServicios(File directorio) {
         ArrayList<Servicio> lstServicios = new ArrayList<>();
         File f = new File(directorio, nomArchivo);
         // Escribir la lista serializable
@@ -110,6 +110,39 @@ public class Servicio implements Serializable {
         }
         return lstServicios;
 
+    }*/
+
+    // Leer el archivo donde se encuentran los datos de los servicios
+    public static ArrayList<Servicio> cargarServicios(File directorio) {
+        ArrayList<Servicio> lstServicios = new ArrayList<>();
+        File f = new File(directorio, nomArchivo);
+
+        if (f.exists() && f.length() > 0) {
+            try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))) {
+                lstServicios = (ArrayList<Servicio>) ois.readObject();
+            } catch (Exception e) {
+                // Manejar la excepción, por ejemplo, reiniciando los datos
+                e.printStackTrace();
+                // Si hay un error, cargar los datos iniciales para no dejar la lista vacía
+                lstServicios = obtenerServicios();
+                try {
+                    // Y guardarlos para solucionar el problema de persistencia
+                    guardarServicios(lstServicios, directorio);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+            }
+        } else {
+            // Si el archivo no existe o está vacío, crea la lista con los datos iniciales
+            lstServicios = obtenerServicios();
+            try {
+                // Y guarda la lista en el archivo
+                guardarServicios(lstServicios, directorio);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return lstServicios;
     }
 
     /**

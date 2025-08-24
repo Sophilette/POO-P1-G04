@@ -1,5 +1,11 @@
 package proyecto.modelo;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,6 +19,7 @@ public class OrdenServicio implements Serializable {
     private LocalDate fecha;
     private EstadoOrden estado; // Enum de estado de la orden
     private ArrayList<ItemOrdenServicio> items; // Lista de items de la orden
+    public static final String nomArchivo = "ordenes.ser";
 
     
         //  constructor
@@ -110,6 +117,54 @@ public class OrdenServicio implements Serializable {
     
     PENDIENTE, EN_PROCESO, COMPLETADA, CANCELADA
 
-}
+    }
+
+    // Leer archivo donde se encuentran los datos de las ordenes de servicio
+    public static ArrayList<OrdenServicio> cargarOrdenes(File directorio) {
+        ArrayList<OrdenServicio> lstOrdenes = new ArrayList<>();
+        File f = new File(directorio, nomArchivo);
+
+        if(f.exists() && f.length() > 0){
+            try(ObjectInputStream ois = new ObjectInputStream(new FileInputStream(f))){
+                lstOrdenes = (ArrayList<OrdenServicio>) ois.readObject();
+            }catch(Exception e){
+                // Manejar la excepción, por ejemplo, reiniciando los datos
+                new Exception(e.getMessage());
+                // Si hay un error, cargar los datos iniciales para no dejar la lista vacía
+                lstOrdenes = obtenerOrdenes();
+                try {
+                    // Y guardarlos para solucionar el problema de persistencia
+                    guardarOrdenes(lstOrdenes, directorio);
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+            }
+        } else {
+            // Si el archivo no existe o está vacío, crea la lista con los datos iniciales
+            lstOrdenes = obtenerOrdenes();
+            try {
+                // Y guarda la lista en el archivo
+                guardarOrdenes(lstOrdenes, directorio);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return lstOrdenes;
+    }
+
+    public static boolean guardarOrdenes(ArrayList<OrdenServicio> lstOrdenes, File directorio) throws Exception {
+        boolean guardado = false;
+        File f = new File(directorio, nomArchivo);
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(f))) {
+            oos.writeObject(lstOrdenes);
+            guardado = true;
+        } catch (IOException e) {
+            throw new Exception(e.getMessage());
+        }
+        return guardado;
+    }
+
+
 
 }

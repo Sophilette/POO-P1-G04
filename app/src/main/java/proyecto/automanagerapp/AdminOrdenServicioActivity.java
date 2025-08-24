@@ -2,6 +2,7 @@ package proyecto.automanagerapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 
@@ -15,6 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import proyecto.modelo.*;
 
 import com.example.automanager.R;
+
+import java.util.ArrayList;
+
 public class AdminOrdenServicioActivity extends AppCompatActivity{
 
     private RecyclerView recyclerView;
@@ -39,8 +43,20 @@ public class AdminOrdenServicioActivity extends AppCompatActivity{
     private void llenarLista(){
         recyclerView = findViewById(R.id.lstOrdenesRv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));;
-        ordenServicioAdapter = new OrdenServicioAdapter(OrdenServicio.obtenerOrdenes(), this);
+        // Configurar el adapter
+        ArrayList<OrdenServicio> lstOrdenes = OrdenServicio.cargarOrdenes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+        Log.d("AdminOrdenServicioActivity", "Datos leídos desde el archivo: " + lstOrdenes.size() + " ordenes");
+        Log.d("AutoManager",lstOrdenes.toString()); //muestra la lista en el log
+
+        ordenServicioAdapter = new OrdenServicioAdapter(lstOrdenes, this);
         recyclerView.setAdapter(ordenServicioAdapter);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        llenarLista();
+        Log.d("Administrar Ordenes de Servicio","En onResume"); //muestra la lista en el log
     }
 
     // Método llamado al dar click en boton retroceder
