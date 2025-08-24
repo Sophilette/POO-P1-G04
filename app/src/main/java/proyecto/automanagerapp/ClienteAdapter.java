@@ -21,6 +21,11 @@ public class ClienteAdapter extends RecyclerView.Adapter<ClienteAdapter.VH>{
 
     }
 
+    public void setData(ArrayList<Cliente> nuevos) {
+        this.data.clear();
+        if (nuevos != null) this.data.addAll(nuevos);
+        notifyDataSetChanged();
+    }
 
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {

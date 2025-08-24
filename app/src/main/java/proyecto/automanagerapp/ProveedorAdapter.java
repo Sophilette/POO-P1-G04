@@ -20,7 +20,13 @@ public class ProveedorAdapter extends RecyclerView.Adapter<ProveedorAdapter.VH>{
     private final ArrayList<Proveedor> data;
 
     public ProveedorAdapter(ArrayList<Proveedor> data) {
-        this.data = data;
+        this.data = (data != null) ? new ArrayList<>(data) : new ArrayList<>();
+    }
+
+    public void setData(ArrayList<Proveedor> nuevos) {
+        this.data.clear();
+        if (nuevos != null) this.data.addAll(nuevos);
+        notifyDataSetChanged();
     }
 
     @Override
