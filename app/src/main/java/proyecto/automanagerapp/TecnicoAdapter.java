@@ -1,14 +1,11 @@
 package proyecto.automanagerapp;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.automanager.R;
@@ -21,20 +18,30 @@ import proyecto.modelo.Tecnico;
  * Convierte cada Tecnico en una card (item_tecnico) para el RecyclerView.
  * - Muestra ID, Nombre, Teléfono y Especialidad.
  * - Botón "Eliminar" abre un diálogo de confirmación.
- *   (En este avance, NO elimina realmente: solo muestra un mensaje).
  */
 public class TecnicoAdapter extends RecyclerView.Adapter<TecnicoAdapter.VH>{
 
     private final ArrayList<Tecnico> data;
+    private final OnDeleteListener listener;
 
-    public TecnicoAdapter(ArrayList<Tecnico> data) {
-        this.data = data;
+    public interface OnDeleteListener {
+        void onDeleteRequest(Tecnico t);
+    }
+    public TecnicoAdapter(ArrayList<Tecnico> data, OnDeleteListener listener) {
+        this.data = (data != null) ? new ArrayList<>(data) : new ArrayList<>();
+        this.listener = listener;
+    }
+
+    public void setData(ArrayList<Tecnico> nuevos) {
+        this.data.clear();
+        if (nuevos != null) this.data.addAll(nuevos);
+        notifyDataSetChanged();
     }
 
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_tecnico, parent, /* attachToRoot = */ false);
+                .inflate(R.layout.item_tecnico, parent, false);
         return new VH(v);
     }
 
@@ -46,26 +53,9 @@ public class TecnicoAdapter extends RecyclerView.Adapter<TecnicoAdapter.VH>{
         h.tvTelefono.setText(t.getTelefono());
         h.tvEspecialidad.setText(t.getEspecialidad());
 
-        // Confirmación de eliminación (sin eliminar realmente)
+        // Confirmación de eliminación
         h.btnEliminar.setOnClickListener(v -> {
-            AlertDialog.Builder b = new AlertDialog.Builder(v.getContext());
-            b.setTitle("Eliminar técnico")
-                    .setMessage("¿Deseas eliminar a " + t.getNombre() + "?")
-                    .setPositiveButton("No", (dialog, which) -> dialog.dismiss())
-                    .setNegativeButton("Sí", (dialog, which) -> {
-                        // Aquí NO eliminamos. Solo mostramos aviso.
-                        Toast.makeText(v.getContext(),
-                                "El técnico ha sido eliminado correctamente",
-                                Toast.LENGTH_SHORT).show();
-                    });
-
-            AlertDialog dialog = b.create();
-            dialog.show();
-
-            int colorBotones = Color.parseColor("#808080");
-
-            dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(colorBotones);
-            dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(colorBotones);
+            if (listener != null) listener.onDeleteRequest(t);
         });
     }
 
