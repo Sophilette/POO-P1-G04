@@ -1,10 +1,15 @@
 package proyecto.modelo;
 
+import android.content.Context;
+import android.util.Log;
+
+import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
+import java.io.*;
 
 public class Factura implements Serializable {
 
@@ -57,6 +62,20 @@ public class Factura implements Serializable {
         return total;
     }
 
+    public static ArrayList<Factura> cargarFacturas(Context context) {
+        ArrayList<Factura> facturas = new ArrayList<>();
+        try (FileInputStream fis = context.openFileInput("facturas.dat");
+             ObjectInputStream ois = new ObjectInputStream(fis)) {
+            facturas = (ArrayList<Factura>) ois.readObject();
+        } catch (FileNotFoundException e) {
+            // Es normal que el archivo no exista. No es un error.
+            System.out.println("Archivo 'facturas.dat' no encontrado. Se creará uno nuevo al guardar.");
+        } catch (Exception e) {
+            System.err.println("Error al cargar facturas: " + e.getMessage());
+            e.printStackTrace();
+        }
+        return facturas;
+    }
     // Esta será nuestra "base de datos" en memoria para las facturas.
     // Al ser 'static', esta lista será la misma para toda la aplicación.
     private static ArrayList<Factura> facturasGuardadas = new ArrayList<>();
@@ -73,12 +92,18 @@ public class Factura implements Serializable {
      * Devuelve todas las facturas que hemos "guardado".
      * @return La lista de facturas generadas.
      */
-    public static ArrayList<Factura> obtenerFacturasGuardadas() {
+    public static ArrayList<Factura> obtenerFacturasGuardadas(File directorio) {
+        ArrayList<Factura> facturas = new ArrayList<>();
         // Comprobamos si la lista ya ha sido inicializada.
         if (facturasGuardadas.isEmpty()) {
-
-            ArrayList<OrdenServicio> todasLasOrdenes = OrdenServicio.obtenerOrdenes();
-            ArrayList<Cliente> todosLosClientes = Cliente.obtenerClientes();
+            Log.d("FacturaLogic", "Generando facturas de ejemplo desde archivos...");
+            ArrayList<OrdenServicio> todasLasOrdenes = new ArrayList<>();
+            ArrayList<Cliente> todosLosClientes = new ArrayList<>();
+            try {
+                todasLasOrdenes = OrdenServicio.cargarOrdenes(directorio); // Usar el parámetro
+            } catch (Exception e) {
+                System.err.println("Error al cargar órdenes para facturas: " + e.getMessage());
+            }
 
             for (Cliente clienteActual : todosLosClientes) {
                 if (clienteActual.getTipo() == Cliente.TipoCliente.EMPRESARIAL) {

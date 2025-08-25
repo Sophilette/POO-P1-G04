@@ -1,6 +1,8 @@
 package proyecto.automanagerapp;
 
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -85,8 +87,13 @@ public class GenerarFacturaActivity extends AppCompatActivity {
 
         // Limpiar resultados anteriores
         ordenesParaFacturar.clear();
-        ArrayList<OrdenServicio> todasLasOrdenes = OrdenServicio.obtenerOrdenes();
-
+        ArrayList<OrdenServicio> todasLasOrdenes = new ArrayList<>();
+        try {
+            todasLasOrdenes = OrdenServicio.cargarOrdenes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+        } catch (Exception e) {
+            Log.e("GenerarFactura", "Error al cargar órdenes para consulta: " + e.getMessage());
+            Toast.makeText(this, "Error al cargar órdenes", Toast.LENGTH_SHORT).show();
+        }
         // Filtrar órdenes por empresa y período
         for (OrdenServicio orden : todasLasOrdenes) {
             if (orden.getCliente().getId().equals(empresaSeleccionada.getId()) &&
@@ -161,7 +168,13 @@ public class GenerarFacturaActivity extends AppCompatActivity {
 
     // Estos métodos no necesitan cambios.
     private void cargarEmpresasSpinner() {
-        ArrayList<Cliente> todosLosClientes = Cliente.obtenerClientes();
+        ArrayList<Cliente> todosLosClientes = new ArrayList<>();
+        try {
+            todosLosClientes = Cliente.cargarClientes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+        } catch (Exception e) {
+            Log.e("GenerarFactura", "Error al cargar clientes para spinner: " + e.getMessage());
+            Toast.makeText(this, "Error al cargar clientes", Toast.LENGTH_SHORT).show();
+        }
         ArrayList<Cliente> soloEmpresas = new ArrayList<>();
         for (Cliente cliente : todosLosClientes) {
             if (cliente.getTipo() == Cliente.TipoCliente.EMPRESARIAL) {

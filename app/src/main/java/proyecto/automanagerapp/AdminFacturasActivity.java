@@ -2,6 +2,7 @@ package proyecto.automanagerapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.widget.Button;
 import android.widget.ImageButton;
 import com.example.automanager.R;
@@ -51,7 +52,7 @@ public class AdminFacturasActivity extends AppCompatActivity {
 
     private void cargarFacturas() {
         // Obtenemos la lista de facturas desde nuestro "repositorio" estático en el modelo
-        ArrayList<Factura> facturasGuardadas = Factura.obtenerFacturasGuardadas();
+        ArrayList<Factura> facturasGuardadas = Factura.obtenerFacturasGuardadas(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
 
         // Opcional: Ordenar la lista para que las más nuevas aparezcan primero
         Collections.sort(facturasGuardadas, (f1, f2) -> f2.getFechaEmision().compareTo(f1.getFechaEmision()));
