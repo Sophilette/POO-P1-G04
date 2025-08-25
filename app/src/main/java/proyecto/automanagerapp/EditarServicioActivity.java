@@ -28,7 +28,7 @@ public class EditarServicioActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_editarservicio);
-        mostrarDatos();
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.editarservicio), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -44,6 +44,12 @@ public class EditarServicioActivity extends AppCompatActivity{
         etPrecioServicio.setText(String.format("%.2f",servicio.getPrecioActual()));
         tvCodigoServicio.setText(servicio.getCodigo());
 
+        // Agregar precio al historial de precios
+        servicio.registrarPrecioEnHistorial(servicio.getPrecioActual());
+        Log.d("AutoManager", "Precio agregado al historial: " + servicio.getHistorialPrecios());
+
+
+
     }
 
     //método llamado al dar click en botón cancelar
@@ -55,26 +61,59 @@ public class EditarServicioActivity extends AppCompatActivity{
     public void guardar(View view){
         // recolectar el precio del formulario
         EditText etPrecioServicio = findViewById(R.id.etPrecioServicio);
-        double precio = Double.parseDouble(etPrecioServicio.getText().toString().replace(',', '.'));
-        servicio.setPrecioActual(precio);
-        servicio.registrarPrecioEnHistorial(precio);
+        String precioStr = etPrecioServicio.getText().toString().trim();
 
-        // actualizar el precio en la lista de servicios
+        double precio;
+        boolean precioValido = false;
+
+        // Validar el precio
+        try {
+            if (!precioStr.isEmpty()) {
+                precio = Double.parseDouble(precioStr.replace(',', '.'));
+                if (precio > 0) {
+                    // El precio es válido
+                    precioValido = true;
+                    servicio.setPrecioActual(precio);
+                    servicio.registrarPrecioEnHistorial(precio);
+                }
+            }
+        } catch (NumberFormatException e) {
+            // El precio no es un número válido
+            precioValido = false;
+        }
+
+        // Si el precio no es válido, mostrar el mensaje de error y detener la ejecución
+        if (!precioValido) {
+            Toast.makeText(this, "No se pudo guardar los cambios: Precio inválido.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // Si el precio es válido, continuar con el proceso de guardar
         ArrayList<Servicio> lstServicios = new ArrayList<>();
         try{
             lstServicios = Servicio.cargarServicios(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
             int i = lstServicios.indexOf(servicio);
-            lstServicios.set(i, servicio);
-            Log.d("AutoManager", "Actualizado en lstServicios");
-            //guardar la lista en en el archivo
-            Servicio.guardarServicios(lstServicios, this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
-            Toast.makeText(getApplicationContext(), "Datos guardados", Toast.LENGTH_SHORT).show();
-
+            if (i != -1) {
+                lstServicios.set(i, servicio);
+                Log.d("AutoManager", "Actualizado en lstServicios");
+                //guardar la lista en el archivo
+                Servicio.guardarServicios(lstServicios, this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+                Toast.makeText(getApplicationContext(), "Datos guardados", Toast.LENGTH_SHORT).show();
+            } else {
+                Log.e("AutoManager", "Servicio no encontrado en la lista.");
+                Toast.makeText(getApplicationContext(), "Error al actualizar el servicio.", Toast.LENGTH_SHORT).show();
+            }
         }catch(Exception e){
             Log.d("AuotoManager", "Error al cargar datos al editar"+e.getMessage());
-
+            Toast.makeText(getApplicationContext(), "Error al guardar los datos.", Toast.LENGTH_SHORT).show();
         }
         finish();
+    }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        mostrarDatos();
+        Log.d("Editar Servicios","En onResume");
     }
 }

@@ -29,7 +29,6 @@ public class AdminOrdenServicioActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_adminordenes);
-        //llenarLista();
 
         Log.d("Administrar Ordenes de Servicio","en onCreate");
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.adminordenes), (v, insets) -> {

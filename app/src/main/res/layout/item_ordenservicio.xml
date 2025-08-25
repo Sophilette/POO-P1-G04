@@ -21,7 +21,7 @@
             android:orientation="horizontal"
             android:padding="4dp">
             <TextView
-                android:id="@+id/tvCodigo"
+                android:id="@+id/tvCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cliente:"
@@ -46,7 +46,7 @@
             android:orientation="horizontal"
             android:padding="4dp">
             <TextView
-                android:id="@+id/tvNombreServicio"
+                android:id="@+id/tvFecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Fecha:"
@@ -71,7 +71,7 @@
             android:orientation="horizontal"
             android:padding="4dp">
             <TextView
-                android:id="@+id/tvPrecio"
+                android:id="@+id/tvPlaca"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Placa:"
@@ -117,7 +117,7 @@
 
 
         <Button
-            android:id="@+id/btneditar"
+            android:id="@+id/btndetalles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"

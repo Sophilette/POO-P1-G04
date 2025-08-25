@@ -84,6 +84,15 @@ public class Servicio implements Serializable {
         return lstServicios;
     }
 
+    // Obtener los codigos de los servicios
+    public static ArrayList<String> obtenerCodigos(){
+        ArrayList<String> lstCodigos = new ArrayList<>();
+        for (Servicio servicio : obtenerServicios()) {
+            lstCodigos.add(servicio.getCodigo());
+        }
+        return lstCodigos;
+    }
+
     @Override
     public String toString() {
         return  codigo +  " - " + nombre + " - " + precioActual;

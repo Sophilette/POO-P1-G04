@@ -47,8 +47,43 @@ public class AggServicioActivity extends AppCompatActivity{
         // Obtener los datos del formulario
         EditText etNombreServicio = findViewById(R.id.etNombreServicio);
         EditText etPrecioServicio = findViewById(R.id.etPrecioServicio);
-        String nombre = etNombreServicio.getText().toString();
-        double precio = Double.parseDouble(etPrecioServicio.getText().toString().replace(',', '.'));
+        String nombre = etNombreServicio.getText().toString().trim();
+
+        // Variable para el precio y validación inicial
+        double precio = 0.0;
+        boolean precioValido;
+        try {
+            String precioStr = etPrecioServicio.getText().toString().replace(',', '.');
+            if (precioStr.isEmpty()) {
+                precioValido = false;
+            } else {
+                precio = Double.parseDouble(precioStr);
+                if (precio <= 0) {
+                    precioValido = false;
+                }else{
+                    precioValido=true;
+                }
+            }
+        } catch (NumberFormatException e) {
+            precioValido = false;
+        }
+
+        // Validar ambos campos
+        if (nombre.isEmpty() && !precioValido) {
+            // Caso 1: Ambos campos son inválidos
+            Toast.makeText(this, "No se pudo guardar el servicio: Nombre y Precio inválidos.", Toast.LENGTH_LONG).show();
+            return;
+        } else if (nombre.isEmpty()) {
+            // Caso 2: Solo el nombre es inválido
+            Toast.makeText(this, "No se pudo guardar el servicio: Nombre inválido.", Toast.LENGTH_LONG).show();
+            return;
+        } else if (!precioValido) {
+            // Caso 3: Solo el precio es inválido
+            Toast.makeText(this, "No se pudo guardar el servicio: Precio inválido.", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // Si ambos campos son válidos, continuar con el proceso de guardar
 
         ArrayList<Servicio> lstServicios = new ArrayList<>();
         try{
@@ -75,7 +110,5 @@ public class AggServicioActivity extends AppCompatActivity{
         }
         finish();
     }
-
-
 
 }
