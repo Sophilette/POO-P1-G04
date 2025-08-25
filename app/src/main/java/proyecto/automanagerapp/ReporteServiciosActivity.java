@@ -2,6 +2,8 @@ package proyecto.automanagerapp;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -85,7 +87,15 @@ public class ReporteServiciosActivity extends AppCompatActivity{
         HashMap<String, Double> recaudadoPorServicio = new HashMap<>();
 
         // 1. Obtenemos todas las órdenes de tu método estático.
-        ArrayList<OrdenServicio> todasLasOrdenes = OrdenServicio.obtenerOrdenes();
+        ArrayList<OrdenServicio> todasLasOrdenes = new ArrayList<>();
+        try {
+            todasLasOrdenes = OrdenServicio.cargarOrdenes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+        } catch (Exception e) {
+            Log.e("ReporteServicios", "Error al cargar órdenes para reporte: " + e.getMessage());
+            Toast.makeText(this, "Error al cargar órdenes", Toast.LENGTH_SHORT).show();
+
+            return;
+        }
 
         // 2. Iteramos sobre cada orden.
         for (OrdenServicio orden : todasLasOrdenes) {
