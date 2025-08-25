@@ -1,6 +1,8 @@
 package proyecto.automanagerapp;
 
 import android.os.Bundle;
+import android.os.Environment;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,7 +77,13 @@ public class ReporteTecnicosActivity extends AppCompatActivity{
         HashMap<String, Double> recaudadoPorTecnico = new HashMap<>();
 
         // 1. Obtenemos todas las órdenes.
-        ArrayList<OrdenServicio> todasLasOrdenes = OrdenServicio.obtenerOrdenes();
+        ArrayList<OrdenServicio> todasLasOrdenes = new ArrayList<>();
+        try {
+            todasLasOrdenes = OrdenServicio.cargarOrdenes(this.getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS));
+        } catch (Exception e) {
+            Log.e("ReporteTecnicos", "Error al cargar órdenes para reporte: " + e.getMessage());
+            Toast.makeText(this, "Error al cargar órdenes", Toast.LENGTH_SHORT).show();
+        }
 
         // 2. Iteramos sobre cada orden.
         for (OrdenServicio orden : todasLasOrdenes) {
