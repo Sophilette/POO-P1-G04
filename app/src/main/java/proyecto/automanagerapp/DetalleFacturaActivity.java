@@ -6,7 +6,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import java.time.format.DateTimeFormatter;
+import java.util.Collections;
 import java.util.Locale;
+import java.util.ArrayList;
 import com.example.automanager.R;
 import proyecto.modelo.Factura;
 import proyecto.modelo.ItemOrdenServicio;
@@ -32,11 +34,23 @@ public class DetalleFacturaActivity extends AppCompatActivity {
 
         if (position != -1) {
             // Usamos la posición para obtener la factura correcta de nuestra lista estática
-            Factura factura = Factura.obtenerFacturasGuardadas().get(position);
-            mostrarDetalles(factura);
-        } else {
-            Toast.makeText(this, "Error al cargar la factura", Toast.LENGTH_SHORT).show();
-            finish();
+            // 1. Cargamos la lista completa de facturas desde el archivo.
+            ArrayList<Factura> facturasGuardadas = Factura.cargarFacturas(getApplicationContext());
+
+            // 2. ¡CRÍTICO! Ordenamos la lista EXACTAMENTE IGUAL que en la pantalla anterior.
+            //    Esto asegura que la 'posición' que recibimos apunte a la factura correcta.
+            Collections.sort(facturasGuardadas, (f1, f2) -> f2.getFechaEmision().compareTo(f1.getFechaEmision()));
+
+            // 3. Verificamos que la posición sea válida para la lista que acabamos de cargar.
+            if (position < facturasGuardadas.size()) {
+                // 4. Usamos la posición para obtener la factura correcta de la lista.
+                Factura factura = facturasGuardadas.get(position);
+                mostrarDetalles(factura);
+            } else {
+                Toast.makeText(this, "Error: La posición de la factura es inválida.", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+
         }
     }
 
